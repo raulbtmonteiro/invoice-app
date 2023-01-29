@@ -1,0 +1,15 @@
+export const light: Template = {
+  title: "light",
+
+  colors: {
+    body: "#F8F8FB",
+    bodyCards: "#FFFFFF",
+    logoBackground: "#7c5dfa",
+    logoShadow: "#9277ff",
+    setupBarBackground: "#1E2139",
+    text: "#0C0E16",
+    textButtom: "#FFFFFF",
+    textDescription: "#858BB2",
+    textHighlight: "#7E88C3",
+  },
+};
