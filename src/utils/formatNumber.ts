@@ -1,5 +1,3 @@
-import { type } from "os";
-
 export const formatCurrency = (price: number) => {
   return `R$ ${price.toLocaleString("pt-br", {
     minimumFractionDigits: 2,

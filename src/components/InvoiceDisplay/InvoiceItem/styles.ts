@@ -86,10 +86,13 @@ export const Value = styled.p`
   font-size: 16px;
   line-height: 24px;
   min-width: 87px;
-  justify-content: flex-end;
 
   letter-spacing: -0.8px;
   color: ${({ theme }) => theme.colors.text};
+
+  @media screen and (min-width: 481px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const Status = styled.div`
