@@ -63,8 +63,7 @@ export const InvoiceDate = styled.div`
 export const Name = styled.h3`
   grid-area: owner;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: flex-end;
   min-width: 86px;
 
   font-style: normal;
@@ -76,6 +75,10 @@ export const Name = styled.h3`
   letter-spacing: -0.25px;
 
   color: ${({ theme }) => theme.colors.textDescription};
+
+  @media screen and (min-width: 481px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const Value = styled.p`
