@@ -9,6 +9,7 @@ interface Colors {
   logoBackground: string;
   logoShadow: string;
   setupBarBackground: string;
+  title: string;
   text: string;
   textButtom: string;
   textDescription: string;

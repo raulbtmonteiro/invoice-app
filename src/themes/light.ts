@@ -7,6 +7,7 @@ export const light: Template = {
     logoBackground: "#7c5dfa",
     logoShadow: "#9277ff",
     setupBarBackground: "#1E2139",
+    title: "#0C0E16",
     text: "#0C0E16",
     textButtom: "#FFFFFF",
     textDescription: "#858BB2",

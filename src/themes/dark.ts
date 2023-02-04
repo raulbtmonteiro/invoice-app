@@ -7,9 +7,10 @@ export const dark: Template = {
     logoBackground: "#7c5dfa",
     logoShadow: "#9277ff",
     setupBarBackground: "#1E2139",
+    title: "#FFFFFF",
     text: "#FFFFFF",
     textButtom: "#FFFFFF",
     textDescription: "#DFE3FA",
-    textHighlight: "#7E88C3",
+    textHighlight: "#888EB0",
   },
 };

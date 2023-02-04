@@ -11,7 +11,7 @@ export const SetupBarContainer = styled.div`
   height: 72px;
 
   @media screen and (min-width: 992px) {
-    position: absolute;
+    position: fixed;
     width: 103px;
     top: 0;
     bottom: 0;

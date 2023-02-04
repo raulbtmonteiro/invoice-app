@@ -1,14 +1,22 @@
 import plus from "../../assets/icon-plus.svg";
+import invoicesData from "./data.json";
+import emailCard from "../../assets/email_campaign_Flatline.svg";
+import { Filter } from "./Filter";
+import { InvoiceItem } from "./InvoiceItem";
 import {
   DisplayContainer,
   DisplayInfo,
   DisplayInfoAmount,
-  DisplayInfoFilter,
-  DisplayInfoNew,
-  DisplayInfoNewButtom,
   DisplayInfoTitle,
+  EmptyDescription,
+  EmptyDisplay,
+  EmptyTitle,
   FlexLeft,
   FlexRight,
+  HiddenText,
+  InvoicesContainer,
+  NewInvoiceButtom,
+  PlusImage,
 } from "./styles";
 
 export const InvoiceDisplay = () => {
@@ -21,21 +29,35 @@ export const InvoiceDisplay = () => {
         </FlexLeft>
 
         <FlexRight>
-          <DisplayInfoFilter name="status">
-            <option value="">Filter</option>
-            <option value="Draft">Draft</option>
-            <option value="Pending">Pending</option>
-            <option value="Paid">Paid</option>
-          </DisplayInfoFilter>
+          <Filter />
 
-          <DisplayInfoNew>
-            <DisplayInfoNewButtom>
+          <NewInvoiceButtom>
+            <PlusImage>
               <img src={plus} />
-            </DisplayInfoNewButtom>
-            New
-          </DisplayInfoNew>
+            </PlusImage>
+            <p>
+              New <HiddenText>Invoices</HiddenText>
+            </p>
+          </NewInvoiceButtom>
         </FlexRight>
       </DisplayInfo>
+
+      <InvoicesContainer>
+        {invoicesData.length > 0 ? (
+          invoicesData.map((invoice: Invoice) => (
+            <InvoiceItem invoice={invoice} />
+          ))
+        ) : (
+          <EmptyDisplay>
+            <img src={emailCard} />
+            <EmptyTitle>There is nothing here</EmptyTitle>
+            <EmptyDescription>
+              Create an invoice by clicking the
+              <b> New Invoice</b> button and get started
+            </EmptyDescription>
+          </EmptyDisplay>
+        )}
+      </InvoicesContainer>
     </DisplayContainer>
   );
 };
