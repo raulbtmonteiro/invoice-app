@@ -1,15 +1,21 @@
 import * as S from "./styles";
 import arrowDown from "../../../assets/icon-arrow-down.svg";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Filter = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef<HTMLImageElement>(null);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    console.log(arrowRef.current);
+  };
 
   return (
     <>
-      <S.Wrapper onClick={() => setIsOpen(!isOpen)}>
+      <S.Wrapper onClick={() => handleClick()}>
         Filter
-        <img src={arrowDown} />
+        <img src={arrowDown} ref={arrowRef} />
       </S.Wrapper>
       {isOpen && (
         <S.OptionsWrapper>

@@ -106,10 +106,12 @@ export const Status = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(51, 214, 159, 0.06);
+  gap: 8px;
+  background: ${({ theme }) => theme.backgroundColor};
   mix-blend-mode: normal;
   border-radius: 6px;
-  color: #33d69f;
+  color: ${({ theme }) => theme.color};
+  text-transform: capitalize;
 
   font-style: normal;
   font-weight: 700;
@@ -117,6 +119,13 @@ export const Status = styled.div`
   line-height: 15px;
 
   letter-spacing: -0.25px;
+
+  div {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.color};
+  }
 
   @media screen and (min-width: 481px) {
     margin: 0;
