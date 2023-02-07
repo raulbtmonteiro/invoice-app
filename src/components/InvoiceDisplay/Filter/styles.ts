@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -56,8 +56,20 @@ export const Options = styled.div`
   @media screen and (min-width: 481px) {
     right: 99px;
   }
+`;
 
-  @media screen and (min-width: 992px) {
-    //top: ;
-  }
+type FilterArrow = {
+  isOpen: boolean;
+};
+
+export const FilterArrow = styled.img.attrs(
+  ({ isOpen }: FilterArrow) => {}
+)<FilterArrow>`
+  transition: 300ms;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      transform: rotate(180deg);
+    `}
 `;

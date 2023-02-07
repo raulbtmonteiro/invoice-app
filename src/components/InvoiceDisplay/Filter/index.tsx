@@ -1,31 +1,34 @@
 import * as S from "./styles";
+import { FilterOptions } from "./FilterOptions";
 import arrowDown from "../../../assets/icon-arrow-down.svg";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export const Filter = () => {
+  const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const arrowRef = useRef<HTMLImageElement>(null);
 
   const handleClick = () => {
+    setShowOptions(!showOptions);
     setIsOpen(!isOpen);
-    console.log(arrowRef.current);
   };
 
   return (
     <>
       <S.Wrapper onClick={() => handleClick()}>
         Filter
-        <img src={arrowDown} ref={arrowRef} />
+        <S.FilterArrow src={arrowDown} isOpen={isOpen} />
       </S.Wrapper>
-      {isOpen && (
+      {showOptions && (
         <S.OptionsWrapper>
           <S.Options>
-            <div>Draft</div>
-            <div>Pending</div>
-            <div>Paid</div>
+            {filtersArray.map((item) => {
+              return <FilterOptions status={item} />;
+            })}
           </S.Options>
         </S.OptionsWrapper>
       )}
     </>
   );
 };
+
+const filtersArray = ["Draft", "Pending", "Paid"];

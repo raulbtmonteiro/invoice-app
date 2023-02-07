@@ -2,7 +2,7 @@ export const light: Template = {
   title: "light",
 
   colors: {
-    body: "#F8F8FB",
+    body: "#dfe3fa",
     bodyCards: "#FFFFFF",
     logoBackground: "#7c5dfa",
     logoShadow: "#9277ff",
