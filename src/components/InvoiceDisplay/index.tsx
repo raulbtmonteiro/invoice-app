@@ -1,24 +1,10 @@
-import plus from "../../assets/icon-plus.svg";
-import invoicesData from "./data.json";
 import emailCard from "../../assets/email_campaign_Flatline.svg";
-import { Filter } from "./Filter";
+import plus from "../../assets/icon-plus.svg";
 import { InvoiceItem } from "./InvoiceItem";
-import {
-  DisplayContainer,
-  DisplayInfo,
-  DisplayInfoAmount,
-  DisplayInfoTitle,
-  EmptyDescription,
-  EmptyDisplay,
-  EmptyTitle,
-  FlexLeft,
-  FlexRight,
-  HiddenText,
-  InvoicesContainer,
-  NewInvoiceButtom,
-  PlusImage,
-} from "./styles";
+import invoicesData from "./data.json";
+import { Filter } from "./Filter";
 import { useState } from "react";
+import * as S from "./styles";
 
 export const InvoicesDisplay = () => {
   const [activeFilter, setActiveFilter] = useState<string[]>([]);
@@ -32,31 +18,31 @@ export const InvoicesDisplay = () => {
   })
 
   return (
-    <DisplayContainer>
-      <DisplayInfo>
-        <FlexLeft>
-          <DisplayInfoTitle>Invoices</DisplayInfoTitle>
-          <DisplayInfoAmount>{filteredData.length} {filteredData.length > 1 ? 'invoices' : 'invoice'}</DisplayInfoAmount>
-        </FlexLeft>
+    <S.DisplayContainer>
+      <S.DisplayInfo>
+        <S.FlexLeft>
+          <S.DisplayInfoTitle>Invoices</S.DisplayInfoTitle>
+          <S.DisplayInfoAmount>{filteredData.length} {filteredData.length > 1 ? 'invoices' : 'invoice'}</S.DisplayInfoAmount>
+        </S.FlexLeft>
 
-        <FlexRight>
+        <S.FlexRight>
           <Filter
             activeFilter={activeFilter}
             setActiveFilter={setActiveFilter}
           />
 
-          <NewInvoiceButtom>
-            <PlusImage>
+          <S.NewInvoiceButtom>
+            <S.PlusImage>
               <img src={plus} />
-            </PlusImage>
+            </S.PlusImage>
             <p>
-              New <HiddenText>Invoices</HiddenText>
+              New <S.HiddenText>Invoices</S.HiddenText>
             </p>
-          </NewInvoiceButtom>
-        </FlexRight>
-      </DisplayInfo>
+          </S.NewInvoiceButtom>
+        </S.FlexRight>
+      </S.DisplayInfo>
 
-      <InvoicesContainer>
+      <S.InvoicesContainer>
         {invoicesData.length > 0 ? (
           filteredData.map((invoice: Invoice) => (
             <InvoiceItem 
@@ -65,16 +51,16 @@ export const InvoicesDisplay = () => {
             />
           ))
         ) : (
-          <EmptyDisplay>
+          <S.EmptyDisplay>
             <img src={emailCard} />
-            <EmptyTitle>There is nothing here</EmptyTitle>
-            <EmptyDescription>
+            <S.EmptyTitle>There is nothing here</S.EmptyTitle>
+            <S.EmptyDescription>
               Create an invoice by clicking the
               <b> New Invoice</b> button and get started
-            </EmptyDescription>
-          </EmptyDisplay>
+            </S.EmptyDescription>
+          </S.EmptyDisplay>
         )}
-      </InvoicesContainer>
-    </DisplayContainer>
+      </S.InvoicesContainer>
+    </S.DisplayContainer>
   );
 };

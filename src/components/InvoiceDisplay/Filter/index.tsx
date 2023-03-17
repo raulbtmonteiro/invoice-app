@@ -1,7 +1,7 @@
-import * as S from "./styles";
-import { FilterOptions } from "./FilterOptions";
 import arrowDown from "../../../assets/icon-arrow-down.svg";
+import { FilterOptions } from "./FilterOptions";
 import { useState } from "react";
+import * as S from "./styles";
 
 interface IFilter {
   activeFilter: string[];

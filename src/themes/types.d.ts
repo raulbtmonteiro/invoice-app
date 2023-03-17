@@ -1,3 +1,8 @@
+export interface Theme {
+  template: Template;
+  icon: string;
+}
+
 interface Template {
   title: string;
   colors: Colors;

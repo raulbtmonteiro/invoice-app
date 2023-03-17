@@ -1,14 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import { dark, light } from "./themes";
-import sun from "./assets/icon-sun.svg";
-import moon from "./assets/icon-moon.svg";
 import { Home, InvoicePage } from "./pages";
-
-export interface Theme {
-  template: Template;
-  icon: string;
-}
+import moon from "./assets/icon-moon.svg";
+import sun from "./assets/icon-sun.svg";
+import { dark, light } from "./themes";
+import { Theme } from "./themes/types";
+import { useState } from "react";
 
 function App() {
   const [theme, setTheme] = useState<Theme>({
