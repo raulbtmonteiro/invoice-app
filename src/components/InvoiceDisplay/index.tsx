@@ -18,18 +18,32 @@ import {
   NewInvoiceButtom,
   PlusImage,
 } from "./styles";
+import { useState } from "react";
 
-export const InvoiceDisplay = () => {
+export const InvoicesDisplay = () => {
+  const [activeFilter, setActiveFilter] = useState<string[]>([]);
+
+  const filteredData = invoicesData.filter((invoice:Invoice) => {
+    if(activeFilter.length === 0){
+      return true
+    } else {
+      return activeFilter.includes(invoice.status)
+    }
+  })
+
   return (
     <DisplayContainer>
       <DisplayInfo>
         <FlexLeft>
           <DisplayInfoTitle>Invoices</DisplayInfoTitle>
-          <DisplayInfoAmount>7 invoices</DisplayInfoAmount>
+          <DisplayInfoAmount>{filteredData.length} {filteredData.length > 1 ? 'invoices' : 'invoice'}</DisplayInfoAmount>
         </FlexLeft>
 
         <FlexRight>
-          <Filter />
+          <Filter
+            activeFilter={activeFilter}
+            setActiveFilter={setActiveFilter}
+          />
 
           <NewInvoiceButtom>
             <PlusImage>
@@ -44,8 +58,11 @@ export const InvoiceDisplay = () => {
 
       <InvoicesContainer>
         {invoicesData.length > 0 ? (
-          invoicesData.map((invoice: Invoice) => (
-            <InvoiceItem invoice={invoice} />
+          filteredData.map((invoice: Invoice) => (
+            <InvoiceItem 
+              key={invoice.id}
+              invoice={invoice}
+            />
           ))
         ) : (
           <EmptyDisplay>

@@ -1,11 +1,11 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { ThemeProvider } from "styled-components";
-import { InvoiceDisplay, SetupBar } from "./components";
-import { dark, GlobalStyle, light } from "./themes";
+import { dark, light } from "./themes";
 import sun from "./assets/icon-sun.svg";
 import moon from "./assets/icon-moon.svg";
+import { Home, InvoicePage } from "./pages";
 
-interface Theme {
+export interface Theme {
   template: Template;
   icon: string;
 }
@@ -23,11 +23,12 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme.template}>
-      <GlobalStyle />
-      <SetupBar toggleTheme={toggleTheme} themeIcon={theme.icon} />
-      <InvoiceDisplay />
-    </ThemeProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme}/>} />
+        <Route path="/invoice/:id" element={<InvoicePage theme={theme} toggleTheme={toggleTheme}/>} />
+      </Routes>
+    </Router>
   );
 }
 

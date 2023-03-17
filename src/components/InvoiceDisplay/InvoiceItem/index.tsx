@@ -1,6 +1,7 @@
 import arrowRight from "../../../assets/icon-arrow-right.svg";
 import { formatCurrency, formatDate } from "../../../utils";
 import { ThemeContext } from "styled-components";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import * as S from "./styles";
 
@@ -58,7 +59,9 @@ export const InvoiceItem = ({ invoice }: InvoiceItem) => {
         <div></div>
         {invoice.status}
       </S.Status>
-      <S.Seta src={arrowRight} />
+      <Link to={`/invoice/${invoice.id}`}>
+        <S.Seta src={arrowRight} />
+      </Link>
     </S.Container>
   );
 };
