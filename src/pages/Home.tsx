@@ -1,12 +1,7 @@
 import { InvoicesDisplay, SetupBar } from "../components";
-import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../themes/globalStyle";
-import { Theme } from "../App";
-
-export interface IPage {
-  theme: Theme;
-  toggleTheme: () => void;
-}
+import { ThemeProvider } from "styled-components";
+import { IPage } from "./types";
 
 export const Home = ({theme, toggleTheme}: IPage) => {
   return (

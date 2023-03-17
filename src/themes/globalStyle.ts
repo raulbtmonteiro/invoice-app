@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
 import SpartanRegular from "../assets/fonts/Spartan-Regular.ttf";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {

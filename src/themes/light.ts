@@ -1,3 +1,5 @@
+import { Template } from "./types";
+
 export const light: Template = {
   title: "light",
 

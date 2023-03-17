@@ -1,39 +1,31 @@
-import mainIcon from "../../assets/main-icon.svg";
 import avatar from "../../assets/image-avatar.jpg";
+import mainIcon from "../../assets/main-icon.svg";
 import { Link } from "react-router-dom";
-import {
-  FlexLeft,
-  FlexRight,
-  SetupBarContainer,
-  SetupBarIcon,
-  SetupBarTheme,
-  SetupBarUser,
-  SetupBarUserImage,
-} from "./styles";
+import * as S from "./styles";
 
-interface SetupBar {
+interface ISetupBar {
   themeIcon: string;
   toggleTheme: () => void;
 }
 
-export const SetupBar = ({ themeIcon, toggleTheme }: SetupBar) => {
+export const SetupBar = ({ themeIcon, toggleTheme }: ISetupBar) => {
   return (
-    <SetupBarContainer>
+    <S.SetupBarContainer>
       <Link to="/">
-        <FlexLeft>
-          <SetupBarIcon src={mainIcon} />
-        </FlexLeft>
+        <S.FlexLeft>
+          <S.SetupBarIcon src={mainIcon} />
+        </S.FlexLeft>
       </Link>
 
-      <FlexRight>
-        <SetupBarTheme onClick={toggleTheme}>
+      <S.FlexRight>
+        <S.SetupBarTheme onClick={toggleTheme}>
           <img src={themeIcon} />
-        </SetupBarTheme>
+        </S.SetupBarTheme>
 
-        <SetupBarUser>
-          <SetupBarUserImage src={avatar} />
-        </SetupBarUser>
-      </FlexRight>
-    </SetupBarContainer>
+        <S.SetupBarUser>
+          <S.SetupBarUserImage src={avatar} />
+        </S.SetupBarUser>
+      </S.FlexRight>
+    </S.SetupBarContainer>
   );
 };

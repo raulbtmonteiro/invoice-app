@@ -1,13 +1,13 @@
-import * as S from "./styles";
 import iconCheck from "../../../../assets/icon-check.svg";
+import * as S from "./styles";
 
-interface FilterOptions {
+interface IFilterOptions {
   status: string;
   activeFilter: string[];
   setActiveFilter: (status: string[]) => void;
 }
 
-export const FilterOptions = ({ status, activeFilter, setActiveFilter }: FilterOptions) => {
+export const FilterOptions = ({ status, activeFilter, setActiveFilter }: IFilterOptions) => {
 
   const handleClick = () => {
     if(activeFilter.includes(status)){

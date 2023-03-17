@@ -1,15 +1,16 @@
 import arrowRight from "../../../assets/icon-arrow-right.svg";
 import { formatCurrency, formatDate } from "../../../utils";
+import { Template } from "../../../themes/types";
 import { ThemeContext } from "styled-components";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import * as S from "./styles";
 
-interface InvoiceItem {
+interface IInvoiceItem {
   invoice: Invoice;
 }
 
-export const InvoiceItem = ({ invoice }: InvoiceItem) => {
+export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
   const theme: Template = useContext(ThemeContext);
 
   const selectStatusColor = (status: string) => {
