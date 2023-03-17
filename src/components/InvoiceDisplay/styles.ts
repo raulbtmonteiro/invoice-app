@@ -139,7 +139,6 @@ export const InvoicesContainer = styled.div`
   padding: 0 24px 32px;
   max-width: 730px;
   margin: 0 auto;
-  min-height: inherit;
 
   @media screen and (min-width: 481px) {
     padding: 0 24px 50px;
