@@ -3,7 +3,12 @@ import { FilterOptions } from "./FilterOptions";
 import arrowDown from "../../../assets/icon-arrow-down.svg";
 import { useState } from "react";
 
-export const Filter = () => {
+interface IFilter {
+  activeFilter: string[];
+  setActiveFilter: (status: string[]) => void;
+}
+
+export const Filter = ({activeFilter, setActiveFilter}: IFilter) => {
   const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +27,11 @@ export const Filter = () => {
         <S.OptionsWrapper>
           <S.Options>
             {filtersArray.map((item) => {
-              return <FilterOptions status={item} />;
+              return <FilterOptions
+                key={Math.random()}
+                status={item}
+                activeFilter={activeFilter} 
+                setActiveFilter={setActiveFilter}/>;
             })}
           </S.Options>
         </S.OptionsWrapper>
@@ -31,4 +40,4 @@ export const Filter = () => {
   );
 };
 
-const filtersArray = ["Draft", "Pending", "Paid"];
+const filtersArray = ["draft", "pending", "paid"];

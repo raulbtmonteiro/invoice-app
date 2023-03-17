@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const OptionGroup = styled.div`
   display: flex;
+  text-transform: capitalize;
 
   cursor: pointer;
   :hover {

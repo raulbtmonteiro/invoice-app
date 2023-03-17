@@ -1,5 +1,6 @@
 import mainIcon from "../../assets/main-icon.svg";
 import avatar from "../../assets/image-avatar.jpg";
+import { Link } from "react-router-dom";
 import {
   FlexLeft,
   FlexRight,
@@ -18,9 +19,11 @@ interface SetupBar {
 export const SetupBar = ({ themeIcon, toggleTheme }: SetupBar) => {
   return (
     <SetupBarContainer>
-      <FlexLeft>
-        <SetupBarIcon src={mainIcon} />
-      </FlexLeft>
+      <Link to="/">
+        <FlexLeft>
+          <SetupBarIcon src={mainIcon} />
+        </FlexLeft>
+      </Link>
 
       <FlexRight>
         <SetupBarTheme onClick={toggleTheme}>

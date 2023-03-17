@@ -134,6 +134,7 @@ export const Status = styled.div`
 
 export const Seta = styled.img`
   display: none;
+  cursor: pointer;
 
   @media screen and (min-width: 481px) {
     display: inline;
