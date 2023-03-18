@@ -117,6 +117,8 @@ export const Status = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 30px;
   justify-content: space-between;
   align-items: center;
   height: fit-content;
@@ -131,6 +133,94 @@ export const InfoContainer = styled.div`
   letter-spacing: -0.25px;
 
   color: ${({ theme }) => theme.colors.textDescription};
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const SenderAddressContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const IDContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const Id = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-area: id;
+  margin-bottom: 8px;
+  color: ${({ theme }) => theme.colors.text};
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+
+  letter-spacing: -0.25px;
+
+  @media screen and (min-width: 481px) {
+    margin: 0;
+  }
+`;
+
+export const Highlight = styled.div`
+  color: ${({ theme }) => theme.colors.textHighlight};
+`;
+
+export const InvoiceDescription = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: ${({ theme }) => theme.colors.textDescription};
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const SenderAddressWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+    letter-spacing: -0.229167px;
+    color: ${({ theme }) => theme.colors.textDescription};
+  }
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const ClientInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
   @media screen and (min-width: 481px) {
     //justify-content: flex-start;
