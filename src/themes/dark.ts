@@ -14,5 +14,7 @@ export const dark: Template = {
     textButtom: "#FFFFFF",
     textDescription: "#DFE3FA",
     textHighlight: "#888EB0",
+    valuesDescriptionContainer: "#252945",
+    grandTotalBG: "#0C0E16"
   },
 };

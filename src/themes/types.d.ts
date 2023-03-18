@@ -19,4 +19,6 @@ interface Colors {
   textButtom: string;
   textDescription: string;
   textHighlight: string;
+  valuesDescriptionContainer: string;
+  grandTotalBG: string
 }
