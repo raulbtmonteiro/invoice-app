@@ -4,7 +4,7 @@ import invoicesData from "../InvoiceDisplay/data.json";
 import { StatusBar } from "./StatusBar";
 import { Link } from "react-router-dom";
 import * as S from './styles';
-import { EditMobile } from "./EditMobile";
+import { OptionsBarMobile } from "./OptionsBarMobile";
 
 interface IInvoiceCard {
   id: string;
@@ -93,7 +93,7 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
         </S.InfoContainer>
       </S.DisplayWrapper>
 
-      <EditMobile />
+      <OptionsBarMobile />
     </S.DisplayContainer>
   );
 };
