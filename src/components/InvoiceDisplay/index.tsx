@@ -2,6 +2,7 @@ import emailCard from "../../assets/email_campaign_Flatline.svg";
 import plus from "../../assets/icon-plus.svg";
 import { InvoiceItem } from "./InvoiceItem";
 import invoicesData from "./data.json";
+import { Invoice } from "./types";
 import { Filter } from "./Filter";
 import { useState } from "react";
 import * as S from "./styles";
