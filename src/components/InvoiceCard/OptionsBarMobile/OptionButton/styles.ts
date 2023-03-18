@@ -8,7 +8,6 @@ export const Button = styled.button`
   max-height: 48px;
   cursor: pointer;
 
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: -0.25px;

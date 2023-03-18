@@ -14,7 +14,6 @@ export const StatusWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
@@ -43,7 +42,6 @@ export const Status = styled.div`
   color: ${({ theme }) => theme.color};
   text-transform: capitalize;
 
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;

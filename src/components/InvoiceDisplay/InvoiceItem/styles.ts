@@ -32,7 +32,6 @@ export const Id = styled.div`
   margin-bottom: 24px;
   color: ${({ theme }) => theme.colors.text};
 
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
@@ -50,7 +49,6 @@ export const Highlight = styled.div`
 
 export const InvoiceDate = styled.div`
   grid-area: date;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
@@ -66,7 +64,6 @@ export const Name = styled.h3`
   justify-content: flex-end;
   min-width: 86px;
 
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
@@ -84,7 +81,6 @@ export const Name = styled.h3`
 export const Value = styled.p`
   display: flex;
   grid-area: value;
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
@@ -113,7 +109,6 @@ export const Status = styled.div`
   color: ${({ theme }) => theme.color};
   text-transform: capitalize;
 
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
