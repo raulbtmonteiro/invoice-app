@@ -21,8 +21,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme}/>} />
-        <Route path="/invoice/:id" element={<InvoicePage theme={theme} toggleTheme={toggleTheme}/>} />
+        <Route
+          path="/"
+          element={<Home theme={theme} toggleTheme={toggleTheme} />}
+        />
+        <Route
+          path="/invoice/:id"
+          element={<InvoicePage theme={theme} toggleTheme={toggleTheme} />}
+        />
       </Routes>
     </Router>
   );

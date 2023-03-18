@@ -15,6 +15,6 @@ export const light: Template = {
     textDescription: "#858BB2",
     textHighlight: "#7E88C3",
     valuesDescriptionContainer: "#F9FAFE",
-    grandTotalBG: "#373B53"
+    grandTotalBG: "#373B53",
   },
 };

@@ -1,12 +1,12 @@
 import { Invoice } from "../../InvoiceDisplay/types";
 import { formatCurrency } from "../../../utils";
-import * as S from './styles';
+import * as S from "./styles";
 
 interface IValuesBox {
   invoice: Invoice;
 }
 
-export const ValuesBox = ({invoice}: IValuesBox) => {
+export const ValuesBox = ({ invoice }: IValuesBox) => {
   return (
     <S.ValuesContainer>
       <S.ValuesDescriptionContainer>
@@ -17,14 +17,18 @@ export const ValuesBox = ({invoice}: IValuesBox) => {
           <div>Total</div>
         </S.Table>
         {invoice?.items.map((item) => {
-          return (  
+          return (
             <S.ValueDescription>
               <div>
                 <S.DescriptionName>{item.name}</S.DescriptionName>
-                <S.DescriptionPriceMobile>{item.quantity} x {formatCurrency(item.price)}</S.DescriptionPriceMobile>
+                <S.DescriptionPriceMobile>
+                  {item.quantity} x {formatCurrency(item.price)}
+                </S.DescriptionPriceMobile>
               </div>
               <S.DescriptionQuantity>{item.quantity}</S.DescriptionQuantity>
-              <S.DescriptionPrice>{formatCurrency(item.price)}</S.DescriptionPrice>
+              <S.DescriptionPrice>
+                {formatCurrency(item.price)}
+              </S.DescriptionPrice>
               <S.TotalPrice>{formatCurrency(item.total)}</S.TotalPrice>
             </S.ValueDescription>
           );
