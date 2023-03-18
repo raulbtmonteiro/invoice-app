@@ -7,6 +7,7 @@ export const Button = styled.button`
   border-radius: 24px;
   max-height: 48px;
   cursor: pointer;
+  opacity: ${({ disabled }) => disabled && 0.3};;
 
   font-weight: 700;
   font-size: 12px;

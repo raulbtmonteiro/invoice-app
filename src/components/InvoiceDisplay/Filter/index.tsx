@@ -8,7 +8,7 @@ interface IFilter {
   setActiveFilter: (status: string[]) => void;
 }
 
-export const Filter = ({activeFilter, setActiveFilter}: IFilter) => {
+export const Filter = ({ activeFilter, setActiveFilter }: IFilter) => {
   const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,11 +27,14 @@ export const Filter = ({activeFilter, setActiveFilter}: IFilter) => {
         <S.OptionsWrapper>
           <S.Options>
             {filtersArray.map((item) => {
-              return <FilterOptions
-                key={Math.random()}
-                status={item}
-                activeFilter={activeFilter} 
-                setActiveFilter={setActiveFilter}/>;
+              return (
+                <FilterOptions
+                  key={Math.random()}
+                  status={item}
+                  activeFilter={activeFilter}
+                  setActiveFilter={setActiveFilter}
+                />
+              );
             })}
           </S.Options>
         </S.OptionsWrapper>

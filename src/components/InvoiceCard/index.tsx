@@ -5,18 +5,18 @@ import { formatDate } from "../../utils";
 import { StatusBar } from "./StatusBar";
 import { ValuesBox } from "./ValuesBox";
 import { Link } from "react-router-dom";
-import * as S from './styles';
+import * as S from "./styles";
 
 interface IInvoiceCard {
   id: string;
 }
 
-export const InvoiceCard = ({id}: IInvoiceCard) => {
+export const InvoiceCard = ({ id }: IInvoiceCard) => {
   const invoice = invoicesData.find((invoice) => invoice.id === id);
 
-  if(invoice === undefined){
-    return null
-  } 
+  if (invoice === undefined) {
+    return null;
+  }
 
   return (
     <S.DisplayContainer>
@@ -28,7 +28,7 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
           </S.Back>
         </Link>
 
-        <StatusBar invoice={invoice}/>
+        <StatusBar status={invoice.status} />
 
         <S.InfoContainer>
           <S.SenderAddressContainer>
@@ -72,11 +72,11 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
             </S.SendTo>
           </S.ClientInfoContainer>
 
-          <ValuesBox invoice={invoice}/>
+          <ValuesBox invoice={invoice} />
         </S.InfoContainer>
       </S.DisplayWrapper>
 
-      <OptionsBarMobile />
+      <OptionsBarMobile status={invoice.status} />
     </S.DisplayContainer>
   );
 };

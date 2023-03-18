@@ -20,5 +20,5 @@ interface Colors {
   textDescription: string;
   textHighlight: string;
   valuesDescriptionContainer: string;
-  grandTotalBG: string
+  grandTotalBG: string;
 }
