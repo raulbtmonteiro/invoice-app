@@ -2,6 +2,7 @@ import { Invoice } from '../../InvoiceDisplay/types';
 import { selectStatusColor } from '../../../utils';
 import { ThemeContext } from "styled-components";
 import { Template } from "../../../themes/types";
+import { OptionsBar } from './OptionsBar';
 import { useContext } from "react";
 import * as S from './styles';
 
@@ -14,11 +15,14 @@ export const StatusBar = ({invoice}: ISetupBar) => {
 
   return (
     <S.StatusContainer>
-      Status
-      <S.Status theme={selectStatusColor(theme, invoice.status)}>
-        <div></div>
-        {invoice.status}
-      </S.Status>
+      <S.StatusWrapper>
+        Status
+        <S.Status theme={selectStatusColor(theme, invoice.status)}>
+          <div></div>
+          {invoice.status}
+        </S.Status>
+      </S.StatusWrapper>
+      <OptionsBar />
     </S.StatusContainer>
   )
 };

@@ -5,6 +5,8 @@ export const Button = styled.button`
   background: ${({ color }) => color};
   border: none;
   border-radius: 24px;
+  max-height: 48px;
+  cursor: pointer;
 
   font-style: normal;
   font-weight: 700;
