@@ -1,7 +1,7 @@
+import { formatCurrency, selectStatusColor } from "../../utils";
 import arrowLeft from "../../assets/icon-arrow-left.svg";
 import invoicesData from "../InvoiceDisplay/data.json";
 import { ThemeContext } from "styled-components";
-import { selectStatusColor } from "../../utils";
 import { Template } from "../../themes/types";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -15,6 +15,10 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
   const theme: Template = useContext(ThemeContext);
   const invoice = invoicesData.find((invoice) => invoice.id === id);
 
+  if(invoice === undefined){
+    return null
+  } 
+
   return (
     <S.DisplayContainer>
       <S.DisplayWrapper>
@@ -27,7 +31,7 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
 
         <S.StatusContainer>
           Status
-          <S.Status theme={invoice && selectStatusColor(theme, invoice?.status)}>
+          <S.Status theme={selectStatusColor(theme, invoice?.status)}>
             <div></div>
             {invoice?.status}
           </S.Status>
@@ -40,17 +44,17 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
                 return (  
                   <S.ValueDescription>
                     <div>
-                      <div>{item.name}</div>
-                      <div>{item.quantity} x {item.price}</div>
+                      <S.DescriptionName>{item.name}</S.DescriptionName>
+                      <S.DescriptionPrice>{item.quantity} x {formatCurrency(item.price)}</S.DescriptionPrice>
                     </div>
-                    <div>{item.total}</div>
+                    <S.TotalPrice>{formatCurrency(item.total)}</S.TotalPrice>
                   </S.ValueDescription>
                 );
               })}
             </S.ValuesDescriptionContainer>
             <S.TotalContainer>
               <S.TotalText>Grand Total</S.TotalText>
-              <S.Total>{invoice?.total}</S.Total>
+              <S.Total>{formatCurrency(invoice?.total)}</S.Total>
             </S.TotalContainer>
           </S.ValuesContainer>
         </S.InfoContainer>
