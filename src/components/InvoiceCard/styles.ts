@@ -60,61 +60,6 @@ export const Back = styled.div`
   }
 `;
 
-export const StatusContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 88px;
-  background-color: ${({ theme }) => theme.colors.bodyCards};
-  padding: 24px;
-  border-radius: 8px;
-
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-
-  color: ${({ theme }) => theme.colors.textDescription};
-
-  @media screen and (min-width: 481px) {
-    //justify-content: flex-start;
-  }
-`;
-
-export const Status = styled.div`
-  margin: 4px 0 4px min(calc(50vw - 152px), 213px);
-  width: 104px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  background: ${({ theme }) => theme.backgroundColor};
-  mix-blend-mode: normal;
-  border-radius: 6px;
-  color: ${({ theme }) => theme.color};
-  text-transform: capitalize;
-
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-
-  letter-spacing: -0.25px;
-
-  div {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: ${({ theme }) => theme.color};
-  }
-
-  @media screen and (min-width: 481px) {
-    //margin: 0;
-  }
-`;
-
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -218,9 +163,84 @@ export const SenderAddressWrapper = styled.div`
 `;
 
 export const ClientInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    "date client"
+    "payment client"
+    "email email";
   width: 100%;
+  
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const InvoiceDate = styled.div`
+  grid-area: date;
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const InfoTitle = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const Info = styled.div`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.3125px;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 20px;
+
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const PaymentDue = styled.div`
+  grid-area: payment;
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const ClientInfoWrapper = styled.div`
+  grid-area: client;
+
+  div {
+    p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 18px;
+      letter-spacing: -0.229167px;
+    }
+  }
+
+  @media screen and (min-width: 481px) {
+    //justify-content: flex-start;
+  }
+`;
+
+export const SendTo = styled.div`
+  grid-area: email;
 
   @media screen and (min-width: 481px) {
     //justify-content: flex-start;
