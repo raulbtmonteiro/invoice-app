@@ -38,6 +38,26 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
         </S.StatusContainer>
 
         <S.InfoContainer>
+          <S.SenderAddressContainer>
+            <S.IDContainer>
+              <S.Id>
+                <S.Highlight>#</S.Highlight>
+                {invoice.id}
+              </S.Id>
+              <S.InvoiceDescription>{invoice.description}</S.InvoiceDescription>
+            </S.IDContainer>
+            <S.SenderAddressWrapper>
+              <p>{invoice.senderAddress.street}</p>
+              <p>{invoice.senderAddress.city}</p>
+              <p>{invoice.senderAddress.postCode}</p>
+              <p>{invoice.senderAddress.country}</p>
+            </S.SenderAddressWrapper>
+          </S.SenderAddressContainer>
+
+          <S.ClientInfoContainer>
+
+          </S.ClientInfoContainer>
+
           <S.ValuesContainer>
             <S.ValuesDescriptionContainer>
               {invoice?.items.map((item) => {
