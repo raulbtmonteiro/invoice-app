@@ -1,10 +1,11 @@
 import arrowLeft from "../../assets/icon-arrow-left.svg";
-import { formatCurrency, formatDate } from "../../utils";
 import invoicesData from "../InvoiceDisplay/data.json";
+import { OptionsBarMobile } from "./OptionsBarMobile";
+import { formatDate } from "../../utils";
 import { StatusBar } from "./StatusBar";
+import { ValuesBox } from "./ValuesBox";
 import { Link } from "react-router-dom";
 import * as S from './styles';
-import { OptionsBarMobile } from "./OptionsBarMobile";
 
 interface IInvoiceCard {
   id: string;
@@ -71,25 +72,7 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
             </S.SendTo>
           </S.ClientInfoContainer>
 
-          <S.ValuesContainer>
-            <S.ValuesDescriptionContainer>
-              {invoice?.items.map((item) => {
-                return (  
-                  <S.ValueDescription>
-                    <div>
-                      <S.DescriptionName>{item.name}</S.DescriptionName>
-                      <S.DescriptionPrice>{item.quantity} x {formatCurrency(item.price)}</S.DescriptionPrice>
-                    </div>
-                    <S.TotalPrice>{formatCurrency(item.total)}</S.TotalPrice>
-                  </S.ValueDescription>
-                );
-              })}
-            </S.ValuesDescriptionContainer>
-            <S.TotalContainer>
-              <S.TotalText>Grand Total</S.TotalText>
-              <S.Total>{formatCurrency(invoice?.total)}</S.Total>
-            </S.TotalContainer>
-          </S.ValuesContainer>
+          <ValuesBox invoice={invoice}/>
         </S.InfoContainer>
       </S.DisplayWrapper>
 
