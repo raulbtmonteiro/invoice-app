@@ -124,7 +124,9 @@ export const Id = styled.div`
   letter-spacing: -0.25px;
 
   @media screen and (min-width: 481px) {
-    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
   }
 `;
 
@@ -139,10 +141,6 @@ export const InvoiceDescription = styled.div`
   line-height: 15px;
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.colors.textDescription};
-
-  @media screen and (min-width: 481px) {
-    //justify-content: flex-start;
-  }
 `;
 
 export const SenderAddressWrapper = styled.div`
