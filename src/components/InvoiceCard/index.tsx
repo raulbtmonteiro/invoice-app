@@ -1,18 +1,16 @@
-import { formatCurrency, selectStatusColor } from "../../utils";
 import arrowLeft from "../../assets/icon-arrow-left.svg";
+import { formatCurrency, formatDate } from "../../utils";
 import invoicesData from "../InvoiceDisplay/data.json";
-import { ThemeContext } from "styled-components";
-import { Template } from "../../themes/types";
+import { StatusBar } from "./StatusBar";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import * as S from './styles';
+import { EditMobile } from "./EditMobile";
 
 interface IInvoiceCard {
-  id: string | undefined;
+  id: string;
 }
 
 export const InvoiceCard = ({id}: IInvoiceCard) => {
-  const theme: Template = useContext(ThemeContext);
   const invoice = invoicesData.find((invoice) => invoice.id === id);
 
   if(invoice === undefined){
@@ -29,13 +27,7 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
           </S.Back>
         </Link>
 
-        <S.StatusContainer>
-          Status
-          <S.Status theme={selectStatusColor(theme, invoice?.status)}>
-            <div></div>
-            {invoice?.status}
-          </S.Status>
-        </S.StatusContainer>
+        <StatusBar invoice={invoice}/>
 
         <S.InfoContainer>
           <S.SenderAddressContainer>
@@ -55,7 +47,28 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
           </S.SenderAddressContainer>
 
           <S.ClientInfoContainer>
-
+            <S.InvoiceDate>
+              <S.InfoTitle>Invoice Date</S.InfoTitle>
+              <S.Info>{formatDate(invoice.createdAt)}</S.Info>
+            </S.InvoiceDate>
+            <S.PaymentDue>
+              <S.InfoTitle>Payment Due</S.InfoTitle>
+              <S.Info>{formatDate(invoice.paymentDue)}</S.Info>
+            </S.PaymentDue>
+            <S.ClientInfoWrapper>
+              <S.InfoTitle>Bill To</S.InfoTitle>
+              <S.Info>{invoice.clientName}</S.Info>
+              <div>
+                <p>{invoice.clientAddress.street}</p>
+                <p>{invoice.clientAddress.city}</p>
+                <p>{invoice.clientAddress.postCode}</p>
+                <p>{invoice.clientAddress.country}</p>
+              </div>
+            </S.ClientInfoWrapper>
+            <S.SendTo>
+              <S.InfoTitle>Send To</S.InfoTitle>
+              <S.Info>{invoice.clientEmail}</S.Info>
+            </S.SendTo>
           </S.ClientInfoContainer>
 
           <S.ValuesContainer>
@@ -79,6 +92,8 @@ export const InvoiceCard = ({id}: IInvoiceCard) => {
           </S.ValuesContainer>
         </S.InfoContainer>
       </S.DisplayWrapper>
+
+      <EditMobile />
     </S.DisplayContainer>
   );
 };

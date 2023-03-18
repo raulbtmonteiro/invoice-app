@@ -3,6 +3,7 @@ import arrowRight from "../../../assets/icon-arrow-right.svg";
 import { Template } from "../../../themes/types";
 import { ThemeContext } from "styled-components";
 import { Link } from "react-router-dom";
+import { Invoice } from "../types";
 import { useContext } from "react";
 import * as S from "./styles";
 
