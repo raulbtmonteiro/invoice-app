@@ -6,6 +6,10 @@ import { IPage } from "./types";
 
 export const InvoicePage = ({theme, toggleTheme}: IPage) => {
   const params = useParams();
+
+  if(params.id === undefined){
+    return null
+  }
   
   return (
     <ThemeProvider theme={theme.template}>
