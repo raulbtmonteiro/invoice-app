@@ -28,18 +28,21 @@ export const DisplayWrapper = styled.div`
 
   a{
     text-decoration: none;
+    width: fit-content;
   }
 
   @media screen and (min-width: 481px) {
-    //padding: 0 24px 50px;
+    padding: 0 24px 50px;
+    margin: 56px auto 0;
   }
 
   @media screen and (min-width: 778px) {
-    //padding: 0 0 50px;
+    padding: 0 0 50px;
   }
 
   @media screen and (min-width: 992px) {
-    //padding: 0 0 32px;
+    padding: 0 0 32px;
+    margin: 70px auto 0;
   }
 `;
 
@@ -171,9 +174,11 @@ export const ClientInfoContainer = styled.div`
     "email email";
   width: 100%;
   
-
   @media screen and (min-width: 481px) {
-    //justify-content: flex-start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "date client email"
+      "payment client email";
   }
 `;
 
