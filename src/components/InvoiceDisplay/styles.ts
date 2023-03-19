@@ -47,7 +47,6 @@ export const FlexLeft = styled.div`
 `;
 
 export const DisplayInfoTitle = styled.h1`
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 22px;
@@ -69,7 +68,6 @@ export const DisplayInfoTitle = styled.h1`
 `;
 
 export const DisplayInfoAmount = styled.p`
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
@@ -95,7 +93,6 @@ export const NewInvoiceButtom = styled.button`
   align-items: center;
   gap: 8px;
   background-color: ${({ theme }) => theme.colors.logoBackground};
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
@@ -174,7 +171,6 @@ export const EmptyDisplay = styled.div`
 `;
 
 export const EmptyTitle = styled.h3`
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 22px;
@@ -183,7 +179,6 @@ export const EmptyTitle = styled.h3`
 `;
 
 export const EmptyDescription = styled.p`
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;

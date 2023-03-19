@@ -10,20 +10,25 @@ import * as S from "./styles";
 export const InvoicesDisplay = () => {
   const [activeFilter, setActiveFilter] = useState<string[]>([]);
 
-  const filteredData = invoicesData.filter((invoice:Invoice) => {
-    if(activeFilter.length === 0){
-      return true
+  const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
+
+  const filteredData = invoices.filter((invoice: Invoice) => {
+    if (activeFilter.length === 0) {
+      return true;
     } else {
-      return activeFilter.includes(invoice.status)
+      return activeFilter.includes(invoice.status);
     }
-  })
+  });
 
   return (
     <S.DisplayContainer>
       <S.DisplayInfo>
         <S.FlexLeft>
           <S.DisplayInfoTitle>Invoices</S.DisplayInfoTitle>
-          <S.DisplayInfoAmount>{filteredData.length} {filteredData.length > 1 ? 'invoices' : 'invoice'}</S.DisplayInfoAmount>
+          <S.DisplayInfoAmount>
+            {filteredData.length}{" "}
+            {filteredData.length > 1 ? "invoices" : "invoice"}
+          </S.DisplayInfoAmount>
         </S.FlexLeft>
 
         <S.FlexRight>
@@ -46,10 +51,7 @@ export const InvoicesDisplay = () => {
       <S.InvoicesContainer>
         {invoicesData.length > 0 ? (
           filteredData.map((invoice: Invoice) => (
-            <InvoiceItem 
-              key={invoice.id}
-              invoice={invoice}
-            />
+            <InvoiceItem key={invoice.id} invoice={invoice} />
           ))
         ) : (
           <S.EmptyDisplay>

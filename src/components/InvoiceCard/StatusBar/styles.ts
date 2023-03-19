@@ -8,22 +8,28 @@ export const StatusContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bodyCards};
   padding: 24px;
   border-radius: 8px;
+`;
 
-  font-style: normal;
+export const StatusWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
+  width: 100%;
 
   color: ${({ theme }) => theme.colors.textDescription};
 
   @media screen and (min-width: 481px) {
-    //justify-content: flex-start;
+    justify-content: flex-start;
+    width: fit-content;
   }
 `;
 
 export const Status = styled.div`
-  margin: 4px 0 4px min(calc(50vw - 152px), 213px);
+  margin-left: 16px;
   width: 104px;
   height: 40px;
   display: flex;
@@ -36,7 +42,6 @@ export const Status = styled.div`
   color: ${({ theme }) => theme.color};
   text-transform: capitalize;
 
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;

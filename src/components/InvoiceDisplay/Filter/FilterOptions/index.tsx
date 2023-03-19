@@ -7,13 +7,16 @@ interface IFilterOptions {
   setActiveFilter: (status: string[]) => void;
 }
 
-export const FilterOptions = ({ status, activeFilter, setActiveFilter }: IFilterOptions) => {
-
+export const FilterOptions = ({
+  status,
+  activeFilter,
+  setActiveFilter,
+}: IFilterOptions) => {
   const handleClick = () => {
-    if(activeFilter.includes(status)){
-      setActiveFilter(activeFilter.filter(item => item !== status))
+    if (activeFilter.includes(status)) {
+      setActiveFilter(activeFilter.filter((item) => item !== status));
     } else {
-      setActiveFilter([...activeFilter, status])
+      setActiveFilter([...activeFilter, status]);
     }
   };
 
