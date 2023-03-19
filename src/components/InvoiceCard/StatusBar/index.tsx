@@ -6,12 +6,20 @@ import { useContext } from "react";
 import * as S from "./styles";
 
 interface ISetupBar {
+  id: string;
   status: string;
   showModal: boolean;
+  setInvoiceStatus: (status: string) => void;
   setShowModal: (showModal: boolean) => void;
 }
 
-export const StatusBar = ({ status, showModal, setShowModal }: ISetupBar) => {
+export const StatusBar = ({
+  id,
+  status,
+  showModal,
+  setInvoiceStatus,
+  setShowModal,
+}: ISetupBar) => {
   const theme: Template = useContext(ThemeContext);
 
   return (
@@ -24,9 +32,11 @@ export const StatusBar = ({ status, showModal, setShowModal }: ISetupBar) => {
         </S.Status>
       </S.StatusWrapper>
       <OptionsBar
+        id={id}
         status={status}
         showModal={showModal}
         setShowModal={setShowModal}
+        setInvoiceStatus={setInvoiceStatus}
       />
     </S.StatusContainer>
   );
