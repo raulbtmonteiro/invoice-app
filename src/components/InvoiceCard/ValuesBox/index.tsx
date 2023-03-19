@@ -18,7 +18,7 @@ export const ValuesBox = ({ invoice }: IValuesBox) => {
         </S.Table>
         {invoice?.items.map((item) => {
           return (
-            <S.ValueDescription>
+            <S.ValueDescription key={Math.random()}>
               <div>
                 <S.DescriptionName>{item.name}</S.DescriptionName>
                 <S.DescriptionPriceMobile>

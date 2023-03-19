@@ -1,4 +1,3 @@
-import { Invoice } from "../../InvoiceDisplay/types";
 import { selectStatusColor } from "../../../utils";
 import { ThemeContext } from "styled-components";
 import { Template } from "../../../themes/types";
@@ -8,9 +7,11 @@ import * as S from "./styles";
 
 interface ISetupBar {
   status: string;
+  showModal: boolean;
+  setShowModal: (showModal: boolean) => void;
 }
 
-export const StatusBar = ({ status }: ISetupBar) => {
+export const StatusBar = ({ status, showModal, setShowModal }: ISetupBar) => {
   const theme: Template = useContext(ThemeContext);
 
   return (
@@ -22,7 +23,11 @@ export const StatusBar = ({ status }: ISetupBar) => {
           {status}
         </S.Status>
       </S.StatusWrapper>
-      <OptionsBar status={status} />
+      <OptionsBar
+        status={status}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </S.StatusContainer>
   );
 };
