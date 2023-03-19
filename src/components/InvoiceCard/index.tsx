@@ -2,11 +2,11 @@ import { DeleteInvoiceModal } from "./DeleteInvoiceModal";
 import arrowLeft from "../../assets/icon-arrow-left.svg";
 import invoicesData from "../InvoiceDisplay/data.json";
 import { OptionsBarMobile } from "./OptionsBarMobile";
+import { useRef, useState } from "react";
 import { formatDate } from "../../utils";
 import { StatusBar } from "./StatusBar";
 import { ValuesBox } from "./ValuesBox";
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
 import * as S from "./styles";
 
 interface IInvoiceCard {
@@ -21,6 +21,8 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
   if (invoice === undefined) {
     return null;
   }
+
+  const [invoiceStatus, setInvoiceStatus] = useState(invoice.status);
 
   return (
     <S.DisplayContainer>
@@ -39,8 +41,10 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
         </Link>
 
         <StatusBar
-          status={invoice.status}
+          id={invoice.id}
+          status={invoiceStatus}
           showModal={showModal}
+          setInvoiceStatus={setInvoiceStatus}
           setShowModal={setShowModal}
         />
 
@@ -91,8 +95,10 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
       </S.DisplayWrapper>
 
       <OptionsBarMobile
-        status={invoice.status}
+        id={invoice.id}
+        status={invoiceStatus}
         showModal={showModal}
+        setInvoiceStatus={setInvoiceStatus}
         setShowModal={setShowModal}
       />
     </S.DisplayContainer>

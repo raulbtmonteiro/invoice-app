@@ -1,8 +1,8 @@
-import Modal from "react-modal";
-import { Template } from "../../../themes/types";
-import * as S from "./styles";
 import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "styled-components";
+import { Template } from "../../../themes/types";
+import Modal from "react-modal";
+import * as S from "./styles";
 
 interface IDeleteInvoiceModal {
   showModal: boolean;

@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import invoicesData from "./components/InvoiceDisplay/data.json";
+import { useEffect, useState } from "react";
 import { Home, InvoicePage } from "./pages";
 import moon from "./assets/icon-moon.svg";
 import sun from "./assets/icon-sun.svg";
 import { dark, light } from "./themes";
 import { Theme } from "./themes/types";
-import { useEffect, useState } from "react";
-import invoicesData from "./components/InvoiceDisplay/data.json";
 
 function App() {
   const [theme, setTheme] = useState<Theme>({
