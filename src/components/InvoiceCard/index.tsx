@@ -1,3 +1,4 @@
+import { DeleteInvoiceModal } from "./DeleteInvoiceModal";
 import arrowLeft from "../../assets/icon-arrow-left.svg";
 import invoicesData from "../InvoiceDisplay/data.json";
 import { OptionsBarMobile } from "./OptionsBarMobile";
@@ -5,6 +6,7 @@ import { formatDate } from "../../utils";
 import { StatusBar } from "./StatusBar";
 import { ValuesBox } from "./ValuesBox";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import * as S from "./styles";
 
 interface IInvoiceCard {
@@ -12,6 +14,7 @@ interface IInvoiceCard {
 }
 
 export const InvoiceCard = ({ id }: IInvoiceCard) => {
+  const [showModal, setShowModal] = useState(false);
   const invoice = invoicesData.find((invoice) => invoice.id === id);
 
   if (invoice === undefined) {
@@ -20,6 +23,11 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
 
   return (
     <S.DisplayContainer>
+      <DeleteInvoiceModal
+        id={invoice.id}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
       <S.DisplayWrapper>
         <Link to="/">
           <S.Back>
@@ -28,7 +36,11 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
           </S.Back>
         </Link>
 
-        <StatusBar status={invoice.status} />
+        <StatusBar
+          status={invoice.status}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
 
         <S.InfoContainer>
           <S.SenderAddressContainer>
@@ -76,7 +88,11 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
         </S.InfoContainer>
       </S.DisplayWrapper>
 
-      <OptionsBarMobile status={invoice.status} />
+      <OptionsBarMobile
+        status={invoice.status}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </S.DisplayContainer>
   );
 };
