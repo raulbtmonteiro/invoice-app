@@ -1,8 +1,10 @@
 import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "styled-components";
 import { Template } from "../../../themes/types";
+import ReactModal from "react-modal";
 import Modal from "react-modal";
 import * as S from "./styles";
+import "./styles.css";
 
 interface IDeleteInvoiceModal {
   showModal: boolean;
@@ -22,6 +24,8 @@ export const DeleteInvoiceModal = ({
   const theme: Template = useContext(ThemeContext);
   const maxWidth = isMobile ? "327px" : "480px";
   const padding = isMobile ? "32px" : "48px";
+
+  Modal.setAppElement("#root");
 
   const customStyles = {
     overlay: {
@@ -64,7 +68,14 @@ export const DeleteInvoiceModal = ({
   };
 
   return (
-    <Modal isOpen={showModal} style={customStyles}>
+    <ReactModal
+      isOpen={showModal}
+      style={customStyles}
+      preventScroll={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      onRequestClose={() => closeModal()}
+      shouldCloseOnOverlayClick={true}
+    >
       <S.Title>Confirm Deletion</S.Title>
       <S.Description>
         Are you sure you want to delete invoice #{id}? This action cannot be
@@ -81,6 +92,6 @@ export const DeleteInvoiceModal = ({
           Delete
         </S.Button>
       </S.ButtonsContainer>
-    </Modal>
+    </ReactModal>
   );
 };
