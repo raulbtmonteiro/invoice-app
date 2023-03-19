@@ -4,13 +4,18 @@ import moon from "./assets/icon-moon.svg";
 import sun from "./assets/icon-sun.svg";
 import { dark, light } from "./themes";
 import { Theme } from "./themes/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import invoicesData from "./components/InvoiceDisplay/data.json";
 
 function App() {
   const [theme, setTheme] = useState<Theme>({
     template: dark,
     icon: moon,
   });
+
+  useEffect(() => {
+    localStorage.setItem("invoices", JSON.stringify(invoicesData));
+  }, []);
 
   const toggleTheme = () => {
     theme.template.title == "dark"

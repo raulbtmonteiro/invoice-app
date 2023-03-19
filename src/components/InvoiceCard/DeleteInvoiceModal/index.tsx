@@ -8,12 +8,14 @@ interface IDeleteInvoiceModal {
   showModal: boolean;
   setShowModal: (showModal: boolean) => void;
   id: string;
+  goBackRef: React.RefObject<HTMLAnchorElement>;
 }
 
 export const DeleteInvoiceModal = ({
   showModal,
   setShowModal,
   id,
+  goBackRef,
 }: IDeleteInvoiceModal) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(width < 481);
@@ -53,6 +55,14 @@ export const DeleteInvoiceModal = ({
     setShowModal(!showModal);
   };
 
+  const deleteInvoice = () => {
+    const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
+    const newInvoices = invoices.filter((invoice: any) => invoice.id !== id);
+    localStorage.setItem("invoices", JSON.stringify(newInvoices));
+    closeModal();
+    goBackRef.current?.click();
+  };
+
   return (
     <Modal isOpen={showModal} style={customStyles}>
       <S.Title>Confirm Deletion</S.Title>
@@ -67,7 +77,9 @@ export const DeleteInvoiceModal = ({
         >
           Cancel
         </S.Button>
-        <S.Button color="#EC5757">Delete</S.Button>
+        <S.Button color="#EC5757" onClick={() => deleteInvoice()}>
+          Delete
+        </S.Button>
       </S.ButtonsContainer>
     </Modal>
   );

@@ -10,7 +10,9 @@ import * as S from "./styles";
 export const InvoicesDisplay = () => {
   const [activeFilter, setActiveFilter] = useState<string[]>([]);
 
-  const filteredData = invoicesData.filter((invoice: Invoice) => {
+  const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
+
+  const filteredData = invoices.filter((invoice: Invoice) => {
     if (activeFilter.length === 0) {
       return true;
     } else {

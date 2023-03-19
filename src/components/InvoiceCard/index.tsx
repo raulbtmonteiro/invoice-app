@@ -6,7 +6,7 @@ import { formatDate } from "../../utils";
 import { StatusBar } from "./StatusBar";
 import { ValuesBox } from "./ValuesBox";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import * as S from "./styles";
 
 interface IInvoiceCard {
@@ -15,6 +15,7 @@ interface IInvoiceCard {
 
 export const InvoiceCard = ({ id }: IInvoiceCard) => {
   const [showModal, setShowModal] = useState(false);
+  const goBackRef = useRef<HTMLAnchorElement>(null);
   const invoice = invoicesData.find((invoice) => invoice.id === id);
 
   if (invoice === undefined) {
@@ -27,9 +28,10 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
         id={invoice.id}
         showModal={showModal}
         setShowModal={setShowModal}
+        goBackRef={goBackRef}
       />
       <S.DisplayWrapper>
-        <Link to="/">
+        <Link to="/" ref={goBackRef}>
           <S.Back>
             <img src={arrowLeft} alt="arrow-left" />
             Go Back
