@@ -7,7 +7,7 @@ export const formatCurrency = (price: number) => {
 
 const Months = {
   [1]: "Jan",
-  [2]: "Fev",
+  [2]: "Feb",
   [3]: "Mar",
   [4]: "Apr",
   [5]: "May",

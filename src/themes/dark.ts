@@ -1,6 +1,6 @@
-import { Template } from "./types";
+import { Theme } from "./types";
 
-export const dark: Template = {
+export const dark: Theme = {
   title: "dark",
 
   colors: {
