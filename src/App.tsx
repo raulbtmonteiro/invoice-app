@@ -1,41 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import invoicesData from "./components/InvoiceDisplay/data.json";
-import { useEffect, useState } from "react";
-import { Home, InvoicePage } from "./pages";
-import moon from "./assets/icon-moon.svg";
-import sun from "./assets/icon-sun.svg";
-import { dark, light } from "./themes";
-import { Theme } from "./themes/types";
+import { Home, InvoicePage } from "./views";
+import { GlobalStyle } from "./themes";
+import invoicesData from "./data.json";
+import { AppTheme } from "./themes";
+import { useEffect } from "react";
 
 function App() {
-  const [theme, setTheme] = useState<Theme>({
-    template: dark,
-    icon: moon,
-  });
-
   useEffect(() => {
     localStorage.setItem("invoices", JSON.stringify(invoicesData));
   }, []);
 
-  const toggleTheme = () => {
-    theme.template.title == "dark"
-      ? setTheme({ template: light, icon: sun })
-      : setTheme({ template: dark, icon: moon });
-  };
-
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home theme={theme} toggleTheme={toggleTheme} />}
-        />
-        <Route
-          path="/invoice/:id"
-          element={<InvoicePage theme={theme} toggleTheme={toggleTheme} />}
-        />
-      </Routes>
-    </Router>
+    <AppTheme>
+      <GlobalStyle />
+
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/invoice/:id" element={<InvoicePage />} />
+        </Routes>
+      </Router>
+    </AppTheme>
   );
 }
 

@@ -1,6 +1,6 @@
-import { Template } from "../themes/types";
+import { Theme } from "../themes/types";
 
-export const selectStatusColor = (theme: Template, status: string) => {
+export const selectStatusColor = (theme: Theme, status: string) => {
   let result = { color: "", backgroundColor: "" };
   switch (status) {
     case "paid":
