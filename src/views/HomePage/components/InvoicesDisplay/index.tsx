@@ -1,7 +1,7 @@
 import emailCard from "../../../../assets/images/email_campaign_Flatline.svg";
 import plus from "../../../../assets/images/icon-plus.svg";
-import invoicesData from "../../../../data.json";
 import { NewInvoiceModal } from "../NewInvoice";
+import { useTranslation, Trans } from 'react-i18next';
 import { InvoiceItem } from "../InvoiceItem";
 import { Invoice } from "../../../types";
 import { Filter } from "../Filter";
@@ -9,6 +9,7 @@ import { useState } from "react";
 import * as S from "./styles";
 
 export const InvoicesDisplay = () => {
+  const { t } = useTranslation();
   const [newInvoice, setNewInvoice] = useState(false);
   const [activeFilter, setActiveFilter] = useState<string[]>([]);
 
@@ -27,10 +28,10 @@ export const InvoicesDisplay = () => {
       <NewInvoiceModal newInvoice={newInvoice} setNewInvoice={setNewInvoice} />
       <S.DisplayInfo>
         <S.FlexLeft>
-          <S.DisplayInfoTitle>Invoices</S.DisplayInfoTitle>
+          <S.DisplayInfoTitle>{t('invoicesDisplay.title')}</S.DisplayInfoTitle>
           <S.DisplayInfoAmount>
             {filteredData.length}{" "}
-            {filteredData.length > 1 ? "invoices" : "invoice"}
+            {filteredData.length > 1 ? t('invoicesDisplay.multipleAmount') : t('invoicesDisplay.singleAmount')}
           </S.DisplayInfoAmount>
         </S.FlexLeft>
 
@@ -45,24 +46,23 @@ export const InvoicesDisplay = () => {
               <img src={plus} />
             </S.PlusImage>
             <p>
-              New <S.HiddenText>Invoices</S.HiddenText>
+              {t('invoicesDisplay.button')} <S.HiddenText>{t('invoicesDisplay.buttonHidenText')}</S.HiddenText>
             </p>
           </S.NewInvoiceButtom>
         </S.FlexRight>
       </S.DisplayInfo>
 
       <S.InvoicesContainer>
-        {invoicesData.length > 0 ? (
+        {invoices.length > 0 ? (
           filteredData.map((invoice: Invoice) => (
             <InvoiceItem key={invoice.id} invoice={invoice} />
           ))
         ) : (
           <S.EmptyDisplay>
             <img src={emailCard} />
-            <S.EmptyTitle>There is nothing here</S.EmptyTitle>
+            <S.EmptyTitle>{t('invoicesDisplay.emptyCardTitle')}</S.EmptyTitle>
             <S.EmptyDescription>
-              Create an invoice by clicking the
-              <b> New Invoice</b> button and get started
+              <Trans t={t} i18nKey="invoicesDisplay.emptyCardDescription" />
             </S.EmptyDescription>
           </S.EmptyDisplay>
         )}
