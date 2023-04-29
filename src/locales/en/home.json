@@ -1,0 +1,11 @@
+{
+  "invoicesDisplay":{
+    "title": "Invoices",
+    "singleAmount": "Invoice",
+    "multipleAmount": "Invoices",
+    "button": "New",
+    "buttonHidenText": "Invoice",
+    "emptyCardTitle": "There is nothing here!",
+    "emptyCardDescription": "Create an invoice by clicking the <strong>New Invoice</strong> button and get started"
+  }
+}
