@@ -1,10 +1,10 @@
 import avatar from "../../assets/images/image-avatar.jpg";
 import mainIcon from "../../assets/images/main-icon.svg";
 import { ThemePreferencesContext } from "../../themes";
-import brazil from "../../assets/images/br-flag.png";
 import moon from "../../assets/images/icon-moon.svg";
 import sun from "../../assets/images/icon-sun.svg";
-import usa from "../../assets/images/usa-flag.png";
+import brazil from "../../assets/images/br.svg";
+import usa from "../../assets/images/us.svg";
 import { useContext, useState } from "react";
 import * as S from "./styles";
 

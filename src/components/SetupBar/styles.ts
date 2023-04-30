@@ -84,6 +84,9 @@ export const Button = styled.button`
   height: 22px;
   cursor: pointer;
 
+  display: flex;
+  align-items: center;
+
   img {
     width: 100%;
   }
