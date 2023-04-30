@@ -77,6 +77,18 @@ export const FlexRight = styled.div`
   }
 `;
 
+export const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+`;
+
 export const SetupBarTheme = styled.div`
   display: flex;
   justify-content: center;
@@ -84,11 +96,11 @@ export const SetupBarTheme = styled.div`
 
   width: 35px;
   height: 35px;
-  margin-right: 12px;
+  margin: 0 12px;
   cursor: pointer;
 
   @media screen and (min-width: 992px) {
-    margin: 0 0 20px;
+    margin: 20px 0;
   }
 `;
 

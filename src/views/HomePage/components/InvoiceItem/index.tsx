@@ -2,7 +2,6 @@ import arrowRight from "../../../../assets/images/icon-arrow-right.svg";
 import { ThemeContext } from "styled-components";
 import { Theme } from "../../../../themes/types";
 import { Invoice } from "../../../types";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import * as S from "./styles";
 import {
@@ -11,11 +10,15 @@ import {
   selectStatusColor,
 } from "../../../../utils";
 
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
 interface IInvoiceItem {
   invoice: Invoice;
 }
 
 export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
+  const { t } = useTranslation();
   const theme: Theme = useContext(ThemeContext);
 
   return (
@@ -28,7 +31,9 @@ export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
             {invoice.id}
           </S.Id>
         </Link>
-        <S.InvoiceDate>Due {formatDate(invoice.paymentDue)}</S.InvoiceDate>
+        <S.InvoiceDate>
+          {t("invoiceItem.info")} {formatDate(invoice.paymentDue)}
+        </S.InvoiceDate>
         <S.Name>{invoice.clientName}</S.Name>
         <S.Value>{formatCurrency(invoice.total)}</S.Value>
         <S.Status theme={selectStatusColor(theme, invoice.status)}>

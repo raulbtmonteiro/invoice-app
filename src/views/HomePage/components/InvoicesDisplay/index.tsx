@@ -1,12 +1,13 @@
 import emailCard from "../../../../assets/images/email_campaign_Flatline.svg";
 import plus from "../../../../assets/images/icon-plus.svg";
 import { NewInvoiceModal } from "../NewInvoice";
-import { useTranslation, Trans } from 'react-i18next';
 import { InvoiceItem } from "../InvoiceItem";
 import { Invoice } from "../../../types";
 import { Filter } from "../Filter";
 import { useState } from "react";
 import * as S from "./styles";
+
+import { useTranslation, Trans } from "react-i18next";
 
 export const InvoicesDisplay = () => {
   const { t } = useTranslation();
@@ -28,10 +29,12 @@ export const InvoicesDisplay = () => {
       <NewInvoiceModal newInvoice={newInvoice} setNewInvoice={setNewInvoice} />
       <S.DisplayInfo>
         <S.FlexLeft>
-          <S.DisplayInfoTitle>{t('invoicesDisplay.title')}</S.DisplayInfoTitle>
+          <S.DisplayInfoTitle>{t("invoicesDisplay.title")}</S.DisplayInfoTitle>
           <S.DisplayInfoAmount>
             {filteredData.length}{" "}
-            {filteredData.length > 1 ? t('invoicesDisplay.multipleAmount') : t('invoicesDisplay.singleAmount')}
+            {filteredData.length > 1
+              ? t("invoicesDisplay.multipleAmount")
+              : t("invoicesDisplay.singleAmount")}
           </S.DisplayInfoAmount>
         </S.FlexLeft>
 
@@ -46,7 +49,10 @@ export const InvoicesDisplay = () => {
               <img src={plus} />
             </S.PlusImage>
             <p>
-              {t('invoicesDisplay.button')} <S.HiddenText>{t('invoicesDisplay.buttonHidenText')}</S.HiddenText>
+              {t("invoicesDisplay.button")}{" "}
+              <S.HiddenText>
+                {t("invoicesDisplay.buttonHidenText")}
+              </S.HiddenText>
             </p>
           </S.NewInvoiceButtom>
         </S.FlexRight>
@@ -60,7 +66,7 @@ export const InvoicesDisplay = () => {
         ) : (
           <S.EmptyDisplay>
             <img src={emailCard} />
-            <S.EmptyTitle>{t('invoicesDisplay.emptyCardTitle')}</S.EmptyTitle>
+            <S.EmptyTitle>{t("invoicesDisplay.emptyCardTitle")}</S.EmptyTitle>
             <S.EmptyDescription>
               <Trans t={t} i18nKey="invoicesDisplay.emptyCardDescription" />
             </S.EmptyDescription>

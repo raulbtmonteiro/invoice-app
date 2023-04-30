@@ -1,5 +1,5 @@
 {
-  "invoicesDisplay":{
+  "invoicesDisplay": {
     "title": "Invoices",
     "singleAmount": "Invoice",
     "multipleAmount": "Invoices",
@@ -7,5 +7,11 @@
     "buttonHidenText": "Invoice",
     "emptyCardTitle": "There is nothing here!",
     "emptyCardDescription": "Create an invoice by clicking the <strong>New Invoice</strong> button and get started"
+  },
+  "filter": {
+    "title": "Filter"
+  },
+  "invoiceItem": {
+    "info": "Due"
   }
 }
