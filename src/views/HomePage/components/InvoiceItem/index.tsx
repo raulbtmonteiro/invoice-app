@@ -24,26 +24,26 @@ export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
   return (
     <>
       <div></div>
-      <S.Container>
-        <Link to={`/invoice/${invoice.id}`}>
+      <S.ContainerLink to={`/invoice/${invoice.id}`}>
+        <S.Container>
           <S.Id>
             <S.Highlight>#</S.Highlight>
             {invoice.id}
           </S.Id>
-        </Link>
-        <S.InvoiceDate>
-          {t("invoiceItem.info")} {formatDate(invoice.paymentDue)}
-        </S.InvoiceDate>
-        <S.Name>{invoice.clientName}</S.Name>
-        <S.Value>{formatCurrency(invoice.total)}</S.Value>
-        <S.Status theme={selectStatusColor(theme, invoice.status)}>
-          <div></div>
-          {invoice.status}
-        </S.Status>
-        <Link to={`/invoice/${invoice.id}`}>
-          <S.Seta src={arrowRight} />
-        </Link>
-      </S.Container>
+          <S.InvoiceDate>
+            {t("invoiceItem.info")} {formatDate(invoice.paymentDue)}
+          </S.InvoiceDate>
+          <S.Name>{invoice.clientName}</S.Name>
+          <S.Value>{formatCurrency(invoice.total)}</S.Value>
+          <S.Status theme={selectStatusColor(theme, invoice.status)}>
+            <div></div>
+            {invoice.status}
+          </S.Status>
+          <Link to={`/invoice/${invoice.id}`}>
+            <S.Seta src={arrowRight} />
+          </Link>
+        </S.Container>
+      </S.ContainerLink>
     </>
   );
 };

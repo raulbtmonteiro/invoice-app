@@ -1,4 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+export const ContainerLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const Container = styled.div`
   display: grid;
@@ -11,6 +16,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.bodyCards};
   border-radius: 8px;
+  cursor: default;
 
   @media screen and (min-width: 481px) {
     display: flex;
