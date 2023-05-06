@@ -1,5 +1,5 @@
 {
-  "invoicesDisplay":{
+  "invoicesDisplay": {
     "title": "Notas Fiscais",
     "singleAmount": "Nota Fiscal",
     "multipleAmount": "Notas Fiscais",
@@ -7,5 +7,11 @@
     "buttonHidenText": "Nota",
     "emptyCardTitle": "Não há nada aqui!",
     "emptyCardDescription": "Crie uma nova nota clicando no botão <strong>Nova Nota</strong> e comece"
+  },
+  "filter": {
+    "title": "Filtro"
+  },
+  "invoiceItem": {
+    "info": "Vencimento"
   }
 }

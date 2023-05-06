@@ -3,12 +3,15 @@ import { FilterOptions } from "./FilterOptions";
 import { useState } from "react";
 import * as S from "./styles";
 
+import { useTranslation } from "react-i18next";
+
 interface IFilter {
   activeFilter: string[];
   setActiveFilter: (status: string[]) => void;
 }
 
 export const Filter = ({ activeFilter, setActiveFilter }: IFilter) => {
+  const { t } = useTranslation();
   const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,7 +23,7 @@ export const Filter = ({ activeFilter, setActiveFilter }: IFilter) => {
   return (
     <>
       <S.Wrapper onClick={() => handleClick()}>
-        Filter
+        {t("filter.title")}
         <S.FilterArrow src={arrowDown} isOpen={isOpen} />
       </S.Wrapper>
       {showOptions && (
