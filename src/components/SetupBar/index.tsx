@@ -1,3 +1,4 @@
+import { useContext, useCallback, useState } from "react";
 import avatar from "../../assets/images/image-avatar.jpg";
 import mainIcon from "../../assets/images/main-icon.svg";
 import { ThemePreferencesContext } from "../../themes";
@@ -5,7 +6,6 @@ import moon from "../../assets/images/icon-moon.svg";
 import sun from "../../assets/images/icon-sun.svg";
 import brazil from "../../assets/images/br.svg";
 import usa from "../../assets/images/us.svg";
-import { useContext, useState } from "react";
 import * as S from "./styles";
 
 import { Link } from "react-router-dom";
@@ -13,13 +13,17 @@ import i18next from "i18next";
 
 export const SetupBar = () => {
   const { toggleTheme, theme } = useContext(ThemePreferencesContext);
-  const [flag, setFlag] = useState(usa);
+  const [ lang, setLang ] = useState(i18next.language);
 
   const icon = theme.title === "dark" ? moon : sun;
 
+  const flag = useCallback(() => {
+    return lang === "en" ? usa : brazil
+  }, [lang]);
+
   const handleClick = () => {
     i18next.changeLanguage(i18next.language === "en" ? "ptBR" : "en");
-    setFlag(i18next.language === "en" ? usa : brazil);
+    setLang(i18next.language);
   };
 
   return (
@@ -32,7 +36,7 @@ export const SetupBar = () => {
 
       <S.FlexRight>
         <S.Button onClick={() => handleClick()}>
-          <img src={flag} alt="Ícone do idioma atual" />
+          <img src={flag()} alt="Ícone do idioma atual" />
         </S.Button>
 
         <S.SetupBarTheme onClick={toggleTheme}>
