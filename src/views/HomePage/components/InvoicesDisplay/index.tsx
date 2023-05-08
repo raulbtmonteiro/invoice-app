@@ -11,7 +11,7 @@ import { useTranslation, Trans } from "react-i18next";
 
 export const InvoicesDisplay = () => {
   const { t } = useTranslation();
-  const [newInvoice, setNewInvoice] = useState(false);
+  const [showNewInvoiceModal, setShowNewInvoiceModal] = useState(false);
   const [activeFilter, setActiveFilter] = useState<string[]>([]);
 
   const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
@@ -26,7 +26,10 @@ export const InvoicesDisplay = () => {
 
   return (
     <S.DisplayContainer>
-      <NewInvoiceModal newInvoice={newInvoice} setNewInvoice={setNewInvoice} />
+      <NewInvoiceModal
+        showNewInvoiceModal={showNewInvoiceModal}
+        setShowNewInvoiceModal={setShowNewInvoiceModal}
+      />
       <S.DisplayInfo>
         <S.FlexLeft>
           <S.DisplayInfoTitle>{t("invoicesDisplay.title")}</S.DisplayInfoTitle>
@@ -44,7 +47,7 @@ export const InvoicesDisplay = () => {
             setActiveFilter={setActiveFilter}
           />
 
-          <S.NewInvoiceButtom onClick={() => setNewInvoice(true)}>
+          <S.NewInvoiceButtom onClick={() => setShowNewInvoiceModal(true)}>
             <S.PlusImage>
               <img src={plus} />
             </S.PlusImage>
