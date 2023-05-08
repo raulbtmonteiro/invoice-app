@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import * as S from "./styles";
 import { InputForm } from "../InputForm";
 import { LabelForm } from "../LabelForm";
@@ -10,14 +10,15 @@ interface IRowItem {
 }
 
 const RowItem = ({ id }: IRowItem) => {
+  const gridRef = useRef<HTMLDivElement>(null);
   const isVisible = id === 0 ? true : false;
 
   const handleDelete = () => {
-    console.log("delete");
+    gridRef.current?.remove();
   };
 
   return (
-    <S.Grid id={`item-${id}`}>
+    <S.Grid id={`item-${id}`} ref={gridRef}>
       <GridLocator gridArea="itemName">
         <LabelForm htmlFor="itemName" isVisible={isVisible}>
           Item Name

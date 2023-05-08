@@ -24,6 +24,11 @@ export const InvoicesDisplay = () => {
     }
   });
 
+  const handleNewInvoiceClick = () => {
+    document.body.style.overflow = "hidden";
+    setShowNewInvoiceModal(true);
+  };
+
   return (
     <S.DisplayContainer>
       <NewInvoiceModal
@@ -47,7 +52,7 @@ export const InvoicesDisplay = () => {
             setActiveFilter={setActiveFilter}
           />
 
-          <S.NewInvoiceButtom onClick={() => setShowNewInvoiceModal(true)}>
+          <S.NewInvoiceButtom onClick={() => handleNewInvoiceClick()}>
             <S.PlusImage>
               <img src={plus} />
             </S.PlusImage>
