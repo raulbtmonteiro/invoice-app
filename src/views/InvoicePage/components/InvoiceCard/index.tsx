@@ -14,6 +14,7 @@ interface IInvoiceCard {
 }
 
 export const InvoiceCard = ({ id }: IInvoiceCard) => {
+  const [showEditInvoiceModal, setShowEditInvoiceModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const goBackRef = useRef<HTMLAnchorElement>(null);
   const invoice = invoicesData.find((invoice) => invoice.id === id);
@@ -46,6 +47,8 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
           showModal={showModal}
           setInvoiceStatus={setInvoiceStatus}
           setShowModal={setShowModal}
+          showEditInvoiceModal={showEditInvoiceModal}
+          setShowEditInvoiceModal={setShowEditInvoiceModal}
         />
 
         <S.InfoContainer>
@@ -100,6 +103,7 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
         showModal={showModal}
         setInvoiceStatus={setInvoiceStatus}
         setShowModal={setShowModal}
+        setShowEditInvoiceModal={setShowEditInvoiceModal}
       />
     </S.DisplayContainer>
   );

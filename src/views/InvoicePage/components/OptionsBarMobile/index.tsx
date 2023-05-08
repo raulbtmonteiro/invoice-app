@@ -8,6 +8,7 @@ interface IOptionsBarMobile {
   showModal: boolean;
   setInvoiceStatus: (status: string) => void;
   setShowModal: (showModal: boolean) => void;
+  setShowEditInvoiceModal: (showModal: boolean) => void;
 }
 
 export const OptionsBarMobile = ({
@@ -16,6 +17,7 @@ export const OptionsBarMobile = ({
   showModal,
   setInvoiceStatus,
   setShowModal,
+  setShowEditInvoiceModal,
 }: IOptionsBarMobile) => {
   const openDeleteModal = () => {
     setShowModal(!showModal);
@@ -35,7 +37,11 @@ export const OptionsBarMobile = ({
 
   return (
     <S.OptionsBarContainer>
-      <OptionButton text="Edit" color="#252945" />
+      <OptionButton
+        text="Edit"
+        color="#252945"
+        handleClick={() => setShowEditInvoiceModal(true)}
+      />
       <OptionButton
         text="Delete"
         color="#EC5757"

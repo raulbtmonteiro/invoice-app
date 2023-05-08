@@ -1,5 +1,7 @@
 import { OptionButton } from "../../OptionsBarMobile/OptionButton";
+import { EditInvoiceModal } from "../EditInvoice";
 import { Invoice } from "../../../../types";
+import { useState } from "react";
 import * as S from "./styles";
 
 interface IOptionsBar {
@@ -8,6 +10,7 @@ interface IOptionsBar {
   showModal: boolean;
   setInvoiceStatus: (status: string) => void;
   setShowModal: (showModal: boolean) => void;
+  setShowEditInvoiceModal: (showModal: boolean) => void;
 }
 
 export const OptionsBar = ({
@@ -16,6 +19,7 @@ export const OptionsBar = ({
   showModal,
   setInvoiceStatus,
   setShowModal,
+  setShowEditInvoiceModal,
 }: IOptionsBar) => {
   const openDeleteModal = () => {
     setShowModal(!showModal);
@@ -35,7 +39,11 @@ export const OptionsBar = ({
 
   return (
     <S.OptionsBarContainer>
-      <OptionButton text="Edit" color="#252945" />
+      <OptionButton
+        text="Edit"
+        color="#252945"
+        handleClick={() => setShowEditInvoiceModal(true)}
+      />
       <OptionButton
         text="Delete"
         color="#EC5757"

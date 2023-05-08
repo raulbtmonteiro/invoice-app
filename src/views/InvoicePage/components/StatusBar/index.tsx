@@ -1,9 +1,10 @@
 import { selectStatusColor } from "../../../../utils";
 import { ThemeContext } from "styled-components";
 import { Theme } from "../../../../themes/types";
+import { useContext, useState } from "react";
 import { OptionsBar } from "./OptionsBar";
-import { useContext } from "react";
 import * as S from "./styles";
+import { EditInvoiceModal } from "./EditInvoice";
 
 interface ISetupBar {
   id: string;
@@ -11,6 +12,8 @@ interface ISetupBar {
   showModal: boolean;
   setInvoiceStatus: (status: string) => void;
   setShowModal: (showModal: boolean) => void;
+  showEditInvoiceModal: boolean;
+  setShowEditInvoiceModal: (showModal: boolean) => void;
 }
 
 export const StatusBar = ({
@@ -19,11 +22,17 @@ export const StatusBar = ({
   showModal,
   setInvoiceStatus,
   setShowModal,
+  showEditInvoiceModal,
+  setShowEditInvoiceModal,
 }: ISetupBar) => {
   const theme: Theme = useContext(ThemeContext);
 
   return (
     <S.StatusContainer>
+      <EditInvoiceModal
+        showEditInvoiceModal={showEditInvoiceModal}
+        setShowEditInvoiceModal={setShowEditInvoiceModal}
+      />
       <S.StatusWrapper>
         Status
         <S.Status theme={selectStatusColor(theme, status)}>
@@ -37,6 +46,7 @@ export const StatusBar = ({
         showModal={showModal}
         setShowModal={setShowModal}
         setInvoiceStatus={setInvoiceStatus}
+        setShowEditInvoiceModal={setShowEditInvoiceModal}
       />
     </S.StatusContainer>
   );
