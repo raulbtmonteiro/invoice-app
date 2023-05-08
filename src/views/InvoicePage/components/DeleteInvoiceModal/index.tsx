@@ -1,10 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "styled-components";
 import { Theme } from "../../../../themes/types";
-import ReactModal from "react-modal";
-import Modal from "react-modal";
 import * as S from "./styles";
 import "./styles.css";
+
+import ReactModal from "react-modal";
+import Modal from "react-modal";
 
 interface IDeleteInvoiceModal {
   showModal: boolean;
@@ -32,6 +33,8 @@ export const DeleteInvoiceModal = ({
       backgroundColor: "rgba(12,14,22,0.75)",
     },
     content: {
+      display: "flex",
+      maxHeight: "calc(100vh - 72px)",
       top: "50%",
       left: "50%",
       right: "auto",

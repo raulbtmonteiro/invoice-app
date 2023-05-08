@@ -1,18 +1,50 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import * as S from "./styles";
 import { InputForm } from "../InputForm";
+import { LabelForm } from "../LabelForm";
+import { GridLocator } from "../GridLocator";
+//import delete from "../../../assets/images/icon-delete.svg";
 
 interface IRowItem {
   id: number;
 }
 
 const RowItem = ({ id }: IRowItem) => {
+  const isVisible = id === 0 ? true : false;
+
+  const handleDelete = () => {
+    console.log("delete");
+  };
+
   return (
-    <S.Flex id={`item-${id}`}>
-      <InputForm id="itemName" type="text" />
-      <InputForm id="itemQty" type="number" />
-      <InputForm id="itemPrice" type="number" />
-    </S.Flex>
+    <S.Grid id={`item-${id}`}>
+      <GridLocator gridArea="itemName">
+        <LabelForm htmlFor="itemName" isVisible={isVisible}>
+          Item Name
+        </LabelForm>
+        <InputForm id="itemName" type="text" />
+      </GridLocator>
+      <GridLocator gridArea="itemQty">
+        <LabelForm htmlFor="itemQty" isVisible={isVisible}>
+          QTY.
+        </LabelForm>
+        <InputForm id="itemQty" type="number" />
+      </GridLocator>
+      <GridLocator gridArea="itemPrice">
+        <LabelForm htmlFor="itemPrice" isVisible={isVisible}>
+          Price
+        </LabelForm>
+        <InputForm id="itemPrice" type="number" />
+      </GridLocator>
+      <GridLocator gridArea="itemTotal">
+        <LabelForm htmlFor="itemTotal" isVisible={isVisible}>
+          Total
+        </LabelForm>
+      </GridLocator>
+      <GridLocator gridArea="itemDelete" onClick={() => handleDelete()}>
+        <img alt="delete" />
+      </GridLocator>
+    </S.Grid>
   );
 };
 
@@ -23,18 +55,11 @@ export const ItemList = () => {
   const addNewIem = (e: any) => {
     e.preventDefault();
     setLinhas([...linhas, { valor: "" }]);
-    console.log(linhas);
   };
 
   return (
     <div>
       <div>Item List</div>
-      <S.Flex>
-        <h4>Item Name</h4>
-        <h4>QTY.</h4>
-        <h4>Price</h4>
-        <h4>Total</h4>
-      </S.Flex>
       {linhas.map((item, index) => (
         <RowItem id={index} />
       ))}

@@ -1,9 +1,11 @@
 import arrowLeft from "../../assets/images/icon-arrow-left.svg";
-import { useParams } from "react-router-dom";
+import { GridLocator } from "./GridLocator";
 import { LabelForm } from "./LabelForm";
 import { InputForm } from "./InputForm";
-import * as S from "./styles";
 import { ItemList } from "./ItemList";
+import * as S from "./styles";
+
+import { useParams } from "react-router-dom";
 
 interface IInvoiceForm {
   type: "new" | "edit";
@@ -14,9 +16,14 @@ export const InvoiceForm = ({ type, setShowModal }: IInvoiceForm) => {
   const params = useParams();
   const title = type === "new" ? "New Invoice" : `Edit #${params.id}`;
 
+  const handleGoBackClick = () => {
+    document.body.style.overflow = "auto";
+    setShowModal(false);
+  };
+
   return (
     <S.Container>
-      <S.Back onClick={() => setShowModal(false)}>
+      <S.Back onClick={() => handleGoBackClick()}>
         <img src={arrowLeft} alt="arrow-left" />
         Go Back
       </S.Back>
@@ -25,68 +32,94 @@ export const InvoiceForm = ({ type, setShowModal }: IInvoiceForm) => {
         <div>
           <S.SectionTitle>Bill From</S.SectionTitle>
           <S.FormFrom>
-            <S.ContainerItem gridArea="street">
-              <LabelForm htmlFor="streetAddress">Street Address</LabelForm>
+            <GridLocator gridArea="street">
+              <LabelForm htmlFor="streetAddress" isVisible={true}>
+                Street Address
+              </LabelForm>
               <InputForm type="text" id="streetAddress" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="city">
-              <LabelForm htmlFor="city">City</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="city">
+              <LabelForm htmlFor="city" isVisible={true}>
+                City
+              </LabelForm>
               <InputForm type="text" id="city" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="postCode">
-              <LabelForm htmlFor="postCode">Post Code</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="postCode">
+              <LabelForm htmlFor="postCode" isVisible={true}>
+                Post Code
+              </LabelForm>
               <InputForm type="text" id="postCode" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="country">
-              <LabelForm htmlFor="country">Country</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="country">
+              <LabelForm htmlFor="country" isVisible={true}>
+                Country
+              </LabelForm>
               <InputForm type="text" id="country" />
-            </S.ContainerItem>
+            </GridLocator>
           </S.FormFrom>
         </div>
         <div>
           <S.SectionTitle>Bill To</S.SectionTitle>
           <S.FormTo>
-            <S.ContainerItem gridArea="name">
-              <LabelForm htmlFor="clientName">Client's Name</LabelForm>
+            <GridLocator gridArea="name">
+              <LabelForm htmlFor="clientName" isVisible={true}>
+                Client's Name
+              </LabelForm>
               <InputForm type="text" id="clientName" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="email">
-              <LabelForm htmlFor="clientEmail">Client's Email</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="email">
+              <LabelForm htmlFor="clientEmail" isVisible={true}>
+                Client's Email
+              </LabelForm>
               <InputForm type="text" id="clientEmail" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="address">
-              <LabelForm htmlFor="streetAddress">Street Address</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="address">
+              <LabelForm htmlFor="streetAddress" isVisible={true}>
+                Street Address
+              </LabelForm>
               <InputForm type="text" id="streetAddress" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="city">
-              <LabelForm htmlFor="city">City</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="city">
+              <LabelForm htmlFor="city" isVisible={true}>
+                City
+              </LabelForm>
               <InputForm type="text" id="city" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="postCode">
-              <LabelForm htmlFor="postCode">Post Code</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="postCode">
+              <LabelForm htmlFor="postCode" isVisible={true}>
+                Post Code
+              </LabelForm>
               <InputForm type="text" id="postCode" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="country">
-              <LabelForm htmlFor="country">Country</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="country">
+              <LabelForm htmlFor="country" isVisible={true}>
+                Country
+              </LabelForm>
               <InputForm type="text" id="country" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="flex">
-              <div>
-                <LabelForm htmlFor="invoiceDate">Invoice Date</LabelForm>
+            </GridLocator>
+            <GridLocator gridArea="flex">
+              <S.Wrapper>
+                <LabelForm htmlFor="invoiceDate" isVisible={true}>
+                  Invoice Date
+                </LabelForm>
                 <InputForm type="text" id="invoiceDate" />
-              </div>
-              <div>
-                <LabelForm htmlFor="paymentTerms">Payment Terms</LabelForm>
+              </S.Wrapper>
+              <S.Wrapper>
+                <LabelForm htmlFor="paymentTerms" isVisible={true}>
+                  Payment Terms
+                </LabelForm>
                 <InputForm type="text" id="paymentTerms" />
-              </div>
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="description">
-              <LabelForm htmlFor="description">Project Description</LabelForm>
+              </S.Wrapper>
+            </GridLocator>
+            <GridLocator gridArea="description">
+              <LabelForm htmlFor="description" isVisible={true}>
+                Project Description
+              </LabelForm>
               <InputForm type="text" id="description" />
-            </S.ContainerItem>
-            <S.ContainerItem gridArea="itemList">
+            </GridLocator>
+            <GridLocator gridArea="itemList">
               <ItemList />
-            </S.ContainerItem>
+            </GridLocator>
           </S.FormTo>
         </div>
       </S.ScrollZone>

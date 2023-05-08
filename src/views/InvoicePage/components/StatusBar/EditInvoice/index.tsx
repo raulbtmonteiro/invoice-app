@@ -10,6 +10,11 @@ export const EditInvoiceModal = ({
   showEditInvoiceModal,
   setShowEditInvoiceModal,
 }: IEditInvoiceModal) => {
+  const handleOverlayClick = () => {
+    document.body.style.overflow = "auto";
+    setShowEditInvoiceModal(false);
+  };
+
   return (
     <>
       <S.Container isModalOpen={showEditInvoiceModal}>
@@ -17,7 +22,7 @@ export const EditInvoiceModal = ({
       </S.Container>
       <S.Overlay
         isModalOpen={showEditInvoiceModal}
-        onClick={() => setShowEditInvoiceModal(false)}
+        onClick={() => handleOverlayClick()}
       />
     </>
   );

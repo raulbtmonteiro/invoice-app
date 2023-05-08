@@ -35,12 +35,18 @@ export const OptionsBarMobile = ({
     setInvoiceStatus("paid");
   };
 
+  const handleEditClick = () => {
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
+    setShowEditInvoiceModal(true);
+  };
+
   return (
     <S.OptionsBarContainer>
       <OptionButton
         text="Edit"
         color="#252945"
-        handleClick={() => setShowEditInvoiceModal(true)}
+        handleClick={() => handleEditClick()}
       />
       <OptionButton
         text="Delete"

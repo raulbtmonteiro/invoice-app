@@ -37,7 +37,7 @@ export const Title = styled.h2`
   letter-spacing: -0.5px;
 
   color: #0c0e16;
-  margin-left: 24px;
+  margin: 0 0 24px 24px;
 
   @media screen and (min-width: 481px) {
     margin: 56px 0 48px 56px;
@@ -106,23 +106,6 @@ export const FormTo = styled.form`
   }
 `;
 
-export const ContainerItem = styled.div<{ gridArea: string }>`
-  grid-area: ${({ gridArea }) => gridArea};
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  @media screen and (min-width: 481px) {
-    flex-direction: ${({ gridArea }) => gridArea === "flex" && "row"};
-    gap: ${({ gridArea }) => gridArea === "flex" && "24px"};
-  }
-`;
-
 export const ScrollZone = styled.div`
   padding: 0 10px 0 24px;
   margin-right: 8px;
@@ -131,7 +114,7 @@ export const ScrollZone = styled.div`
 
   ::-webkit-scrollbar {
     width: 8px;
-    background: #DFE3FA;
+    background: #dfe3fa;
     border-radius: 4px;
   }
 
@@ -151,7 +134,16 @@ export const ScrollZone = styled.div`
 export const SelectionZone = styled.div`
   width: 100%;
   height: 110px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px -20px 20px -10px rgba(72, 84, 159, 0.100397);
-  border-radius: 0px 20px 20px 0px;
+
+  @media screen and (min-width: 481px) {
+    border-radius: 0px 20px 20px 0px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
