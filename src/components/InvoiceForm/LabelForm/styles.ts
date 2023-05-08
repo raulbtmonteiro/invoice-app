@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Label = styled.label`
+export const Label = styled.label<{ isVisible: boolean }>`
   font-family: "Spartan";
   font-style: normal;
   font-weight: 500;
@@ -11,4 +11,8 @@ export const Label = styled.label`
 
   color: #7e88c3;
   margin-bottom: 10px;
+
+  @media screen and (min-width: 481px) {
+    display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+  }
 `;

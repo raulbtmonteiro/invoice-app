@@ -37,12 +37,17 @@ export const OptionsBar = ({
     setInvoiceStatus("paid");
   };
 
+  const handleEditClick = () => {
+    document.body.style.overflow = "hidden";
+    setShowEditInvoiceModal(true);
+  };
+
   return (
     <S.OptionsBarContainer>
       <OptionButton
         text="Edit"
         color="#252945"
-        handleClick={() => setShowEditInvoiceModal(true)}
+        handleClick={() => handleEditClick()}
       />
       <OptionButton
         text="Delete"
