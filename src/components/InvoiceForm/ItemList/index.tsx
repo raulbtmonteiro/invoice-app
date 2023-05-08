@@ -59,12 +59,12 @@ export const ItemList = () => {
   };
 
   return (
-    <div>
-      <div>Item List</div>
+    <>
+      <S.Title>Item List</S.Title>
       {linhas.map((item, index) => (
         <RowItem id={index} />
       ))}
       <S.Button onClick={(e) => addNewIem(e)}>+ Add New Item</S.Button>
-    </div>
+    </>
   );
 };
