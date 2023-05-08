@@ -114,16 +114,11 @@ export const ScrollZone = styled.div`
 
   ::-webkit-scrollbar {
     width: 8px;
-    background: #dfe3fa;
-    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb {
-    display: none;
-  }
-
-  ::-webkit-scrollbar-track {
-    display: none;
+    background: #dfe3fa;
+    border-radius: 4px;
   }
 
   @media screen and (min-width: 481px) {

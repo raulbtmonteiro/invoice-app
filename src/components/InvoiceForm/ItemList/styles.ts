@@ -14,6 +14,19 @@ export const Grid = styled.div`
   }
 `;
 
+export const Title = styled.h3`
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 32px;
+
+  letter-spacing: -0.375px;
+
+  color: #777f98;
+  margin-bottom: 16px;
+`;
+
 export const Button = styled.button`
   width: 100%;
   margin-bottom: 24px;
