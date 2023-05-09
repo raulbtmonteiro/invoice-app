@@ -33,7 +33,7 @@ export const DeleteInvoiceModal = ({
       backgroundColor: "rgba(12,14,22,0.75)",
     },
     content: {
-      display: "flex",
+      display: "block",
       maxHeight: "calc(100vh - 72px)",
       top: "50%",
       left: "50%",

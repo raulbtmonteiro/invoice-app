@@ -14,6 +14,18 @@ export const Grid = styled.div`
   }
 `;
 
+export const ImgWrapper = styled.div<{ isFirst: boolean }>`
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @media screen and (min-width: 481px) {
+    margin-bottom: ${({ isFirst }) => (isFirst ? "0" : "24px")};
+  }
+`;
+
 export const Title = styled.h3`
   font-family: "Spartan";
   font-style: normal;
@@ -32,7 +44,7 @@ export const Button = styled.button`
   margin-bottom: 24px;
   height: 48px;
   cursor: pointer;
-  background: #252945;
+  background: #f9fafe;
   border-radius: 24px;
   border: none;
 
@@ -45,5 +57,5 @@ export const Button = styled.button`
   text-align: center;
   letter-spacing: -0.25px;
 
-  color: #dfe3fa;
+  color: #7e88c3;
 `;

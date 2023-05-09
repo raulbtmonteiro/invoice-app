@@ -48,7 +48,7 @@ export const InvoiceForm = ({ type, setShowModal }: IInvoiceForm) => {
               <LabelForm htmlFor="postCode" isVisible={true}>
                 Post Code
               </LabelForm>
-              <InputForm type="text" id="postCode" />
+              <InputForm type="number" id="postCode" />
             </GridLocator>
             <GridLocator gridArea="country">
               <LabelForm htmlFor="country" isVisible={true}>
@@ -71,7 +71,7 @@ export const InvoiceForm = ({ type, setShowModal }: IInvoiceForm) => {
               <LabelForm htmlFor="clientEmail" isVisible={true}>
                 Client's Email
               </LabelForm>
-              <InputForm type="text" id="clientEmail" />
+              <InputForm type="email" id="clientEmail" />
             </GridLocator>
             <GridLocator gridArea="address">
               <LabelForm htmlFor="streetAddress" isVisible={true}>
@@ -89,7 +89,7 @@ export const InvoiceForm = ({ type, setShowModal }: IInvoiceForm) => {
               <LabelForm htmlFor="postCode" isVisible={true}>
                 Post Code
               </LabelForm>
-              <InputForm type="text" id="postCode" />
+              <InputForm type="number" id="postCode" />
             </GridLocator>
             <GridLocator gridArea="country">
               <LabelForm htmlFor="country" isVisible={true}>
@@ -102,7 +102,7 @@ export const InvoiceForm = ({ type, setShowModal }: IInvoiceForm) => {
                 <LabelForm htmlFor="invoiceDate" isVisible={true}>
                   Invoice Date
                 </LabelForm>
-                <InputForm type="text" id="invoiceDate" />
+                <InputForm type="date" id="invoiceDate" />
               </S.Wrapper>
               <S.Wrapper>
                 <LabelForm htmlFor="paymentTerms" isVisible={true}>

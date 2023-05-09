@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as S from "./styles";
 
 interface IInputForm {
@@ -6,5 +7,13 @@ interface IInputForm {
 }
 
 export const InputForm = ({ type, id }: IInputForm) => {
-  return <S.Input type={type} id={id} />;
+  const [value, setValue] = useState<string | number>("");
+  return (
+    <S.Input
+      type={type}
+      id={id}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
 };
