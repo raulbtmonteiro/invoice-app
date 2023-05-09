@@ -3,7 +3,7 @@ import * as S from "./styles";
 import { InputForm } from "../InputForm";
 import { LabelForm } from "../LabelForm";
 import { GridLocator } from "../GridLocator";
-//import delete from "../../../assets/images/icon-delete.svg";
+import garbage from "../../../assets/images/icon-delete.svg";
 
 interface IRowItem {
   id: number;
@@ -12,6 +12,7 @@ interface IRowItem {
 const RowItem = ({ id }: IRowItem) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const isVisible = id === 0 ? true : false;
+  const isFirst = id === 0 ? true : false;
 
   const handleDelete = () => {
     gridRef.current?.remove();
@@ -43,7 +44,9 @@ const RowItem = ({ id }: IRowItem) => {
         </LabelForm>
       </GridLocator>
       <GridLocator gridArea="itemDelete" onClick={() => handleDelete()}>
-        <img alt="delete" />
+        <S.ImgWrapper isFirst={isFirst}>
+          <img src={garbage} alt="delete" />
+        </S.ImgWrapper>
       </GridLocator>
     </S.Grid>
   );

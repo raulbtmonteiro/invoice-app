@@ -7,8 +7,7 @@ export const Input = styled.input`
   margin-bottom: 24px;
   width: 100%;
 
-  background: #1e2139;
-  border: 1px solid #252945;
+  border: 1px solid #dfe3fa;
   border-radius: 4px;
   height: 48px;
   padding: 16px 20px;
@@ -21,12 +20,14 @@ export const Input = styled.input`
   line-height: 15px;
   letter-spacing: -0.25px;
 
-  color: #ffffff;
+  color: #0c0e16;
 
   mix-blend-mode: normal;
   cursor: pointer;
+  caret-color: #7c5dfa;
 
-  :active {
-    border: 1px solid #000;
+  :focus {
+    outline: none;
+    border: 1px solid #9277ff;
   }
 `;

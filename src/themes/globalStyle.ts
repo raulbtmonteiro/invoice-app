@@ -14,4 +14,19 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'SpartanRegular', sans-serif;
   }
+
+  body{
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${({ theme }: any) => theme.colors.textHighlight};
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: ${({ theme }: any) => theme.colors.body};
+    }
+  }
 `;
