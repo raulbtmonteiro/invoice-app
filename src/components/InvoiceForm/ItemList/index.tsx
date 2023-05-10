@@ -1,21 +1,23 @@
+import garbage from "../../../assets/images/icon-delete.svg";
+import { Invoice, Item } from "../../../views/types";
+import { GridLocator } from "../GridLocator";
 import { useRef, useState } from "react";
-import * as S from "./styles";
 import { InputForm } from "../InputForm";
 import { LabelForm } from "../LabelForm";
-import { GridLocator } from "../GridLocator";
-import garbage from "../../../assets/images/icon-delete.svg";
+import * as S from "./styles";
 
 interface IRowItem {
   id: number;
+  item: Item;
 }
 
-const RowItem = ({ id }: IRowItem) => {
+const RowItem = ({ id, item }: IRowItem) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const isVisible = id === 0 ? true : false;
   const isFirst = id === 0 ? true : false;
 
   const handleDelete = () => {
-    gridRef.current?.remove();
+    //gridRef.current?.remove();
   };
 
   return (
@@ -24,19 +26,19 @@ const RowItem = ({ id }: IRowItem) => {
         <LabelForm htmlFor="itemName" isVisible={isVisible}>
           Item Name
         </LabelForm>
-        <InputForm id="itemName" type="text" />
+        <InputForm id="itemName" type="text" inicialValue={item.name} />
       </GridLocator>
       <GridLocator gridArea="itemQty">
         <LabelForm htmlFor="itemQty" isVisible={isVisible}>
           QTY.
         </LabelForm>
-        <InputForm id="itemQty" type="number" />
+        <InputForm id="itemQty" type="number" inicialValue={item.quantity} />
       </GridLocator>
       <GridLocator gridArea="itemPrice">
         <LabelForm htmlFor="itemPrice" isVisible={isVisible}>
           Price
         </LabelForm>
-        <InputForm id="itemPrice" type="number" />
+        <InputForm id="itemPrice" type="number" inicialValue={item.price} />
       </GridLocator>
       <GridLocator gridArea="itemTotal">
         <LabelForm htmlFor="itemTotal" isVisible={isVisible}>
@@ -52,22 +54,28 @@ const RowItem = ({ id }: IRowItem) => {
   );
 };
 
-export const ItemList = () => {
-  const [linhas, setLinhas] = useState([{ valor: "" }]);
-  console.log(linhas);
+interface IItemList {
+  invoice: Invoice | null;
+}
 
-  const addNewIem = (e: any) => {
+export const ItemList = ({ invoice }: IItemList) => {
+  const INITIAL_STATE = invoice?.items
+    ? invoice.items
+    : [{ name: "", quantity: 0, price: 0, total: 0 }];
+  const [items, setItems] = useState(INITIAL_STATE);
+
+  const addNewItem = (e: any) => {
     e.preventDefault();
-    setLinhas([...linhas, { valor: "" }]);
+    setItems([...items, { name: "", quantity: 0, price: 0, total: 0 }]);
   };
 
   return (
     <>
       <S.Title>Item List</S.Title>
-      {linhas.map((item, index) => (
-        <RowItem id={index} />
+      {items.map((item, index) => (
+        <RowItem id={index} key={Math.random()} item={item} />
       ))}
-      <S.Button onClick={(e) => addNewIem(e)}>+ Add New Item</S.Button>
+      <S.Button onClick={(e) => addNewItem(e)}>+ Add New Item</S.Button>
     </>
   );
 };

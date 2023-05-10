@@ -19,11 +19,13 @@ export interface Invoice {
     postCode: string;
     country: string;
   };
-  items: {
-    name: string;
-    quantity: number;
-    price: number;
-    total: number;
-  }[];
+  items: Item[];
+  total: number;
+}
+
+export interface Item {
+  name: string;
+  quantity: number;
+  price: number;
   total: number;
 }
