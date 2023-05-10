@@ -18,7 +18,11 @@ export const NewInvoiceModal = ({
   return (
     <>
       <S.Container isModalOpen={showNewInvoiceModal}>
-        <InvoiceForm type="new" setShowModal={setShowNewInvoiceModal} />
+        <InvoiceForm
+          invoice={null}
+          type="new"
+          setShowModal={setShowNewInvoiceModal}
+        />
       </S.Container>
       <S.Overlay
         isModalOpen={showNewInvoiceModal}

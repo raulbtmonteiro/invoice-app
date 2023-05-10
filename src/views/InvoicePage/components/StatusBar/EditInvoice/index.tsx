@@ -1,5 +1,8 @@
 import { InvoiceForm } from "../../../../../components";
+import { Invoice } from "../../../../types";
 import * as S from "./styles";
+
+import { useParams } from "react-router-dom";
 
 interface IEditInvoiceModal {
   showEditInvoiceModal: boolean;
@@ -15,10 +18,18 @@ export const EditInvoiceModal = ({
     setShowEditInvoiceModal(false);
   };
 
+  const { id } = useParams<{ id: string }>();
+  const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
+  const invoice = invoices.find((invoice: Invoice) => invoice.id === id);
+
   return (
     <>
       <S.Container isModalOpen={showEditInvoiceModal}>
-        <InvoiceForm type="edit" setShowModal={setShowEditInvoiceModal} />
+        <InvoiceForm
+          invoice={invoice}
+          type="edit"
+          setShowModal={setShowEditInvoiceModal}
+        />
       </S.Container>
       <S.Overlay
         isModalOpen={showEditInvoiceModal}
