@@ -17,7 +17,9 @@ const RowItem = ({ id, item }: IRowItem) => {
   const isFirst = id === 0 ? true : false;
 
   const handleDelete = () => {
-    //gridRef.current?.remove();
+    gridRef.current?.childNodes.forEach((child) =>
+      child.childNodes[1]?.remove()
+    );
   };
 
   return (
@@ -46,6 +48,7 @@ const RowItem = ({ id, item }: IRowItem) => {
         </LabelForm>
       </GridLocator>
       <GridLocator gridArea="itemDelete" onClick={() => handleDelete()}>
+        <span style={{ fontSize: "0px" }}>Delete</span>
         <S.ImgWrapper isFirst={isFirst}>
           <img src={garbage} alt="delete" />
         </S.ImgWrapper>
