@@ -1,11 +1,13 @@
 import { SetupBar } from "../../../src/components";
-import { InvoicesDisplay } from "./components";
+import { InvoicesDisplay, Loading } from "./components";
 
 export const Home = () => {
   return (
     <>
       <SetupBar />
-      <InvoicesDisplay />
+      <Loading>
+        <InvoicesDisplay />
+      </Loading>
     </>
   );
 };
