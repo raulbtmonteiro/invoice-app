@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const inAndOut = keyframes`
+const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   img {
     width: 60px;
-    animation: ${inAndOut} 0.5s infinite alternate;
+    animation: ${fadeIn} 0.5s infinite alternate;
   }
 
   @media screen and (min-width: 992px) {
