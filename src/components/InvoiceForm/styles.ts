@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Back = styled.div`
-  color: ${({ theme }) => theme.colors.text};
+  color: #0c0e16;
 
   font-weight: 700;
   font-size: 12px;
@@ -123,17 +123,6 @@ export const ScrollZone = styled.div`
 
   @media screen and (min-width: 481px) {
     padding: 0 40px 0 56px;
-  }
-`;
-
-export const SelectionZone = styled.div`
-  width: 100%;
-  height: 110px;
-  background: #ffffff;
-  box-shadow: 0px -20px 20px -10px rgba(72, 84, 159, 0.100397);
-
-  @media screen and (min-width: 481px) {
-    border-radius: 0px 20px 20px 0px;
   }
 `;
 

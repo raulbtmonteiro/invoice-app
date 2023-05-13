@@ -1,4 +1,5 @@
 import arrowLeft from "../../assets/images/icon-arrow-left.svg";
+import { SelectionZone } from "./SelectionZone";
 import { Invoice } from "../../views/types";
 import { GridLocator } from "./GridLocator";
 import { LabelForm } from "./LabelForm";
@@ -177,7 +178,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
           </S.FormTo>
         </div>
       </S.ScrollZone>
-      <S.SelectionZone />
+      <SelectionZone type={type} />
     </S.Container>
   );
 };
