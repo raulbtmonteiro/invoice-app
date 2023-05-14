@@ -6,6 +6,7 @@ export interface Theme {
 interface Colors {
   body: string;
   bodyCards: string;
+  error: string;
   logoBackground: string;
   logoShadow: string;
   setupBarBackground: string;

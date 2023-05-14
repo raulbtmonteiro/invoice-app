@@ -28,6 +28,8 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
       const id = idGenerator();
       const status =
         data.nativeEvent.submitter.id === "save-as-draft" ? "draft" : "pending";
+      //const newInvoice = InvoiceFactory(data.target.elements, id, status);
+      //newInvoice.toSave();
       return false;
     }
     const newInvoice = InvoiceFactory(
@@ -194,7 +196,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
           </S.FormTo>
         </div>
       </S.ScrollZone>
-      <SelectionZone type={type} />
+      <SelectionZone type={type} handleGoBack={handleGoBackClick} />
     </S.Container>
   );
 };

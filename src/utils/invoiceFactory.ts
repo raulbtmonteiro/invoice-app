@@ -1,18 +1,3 @@
-interface IFormElements extends HTMLFormControlsCollection {
-  createdAt: HTMLInputElement;
-  description: HTMLInputElement;
-  clientName: HTMLInputElement;
-  clientEmail: HTMLInputElement;
-  senderAddressStreet: HTMLInputElement;
-  senderAddressCity: HTMLInputElement;
-  senderAddressPostCode: HTMLInputElement;
-  senderAddressCountry: HTMLInputElement;
-  clientAddressStreet: HTMLInputElement;
-  clientAddressCity: HTMLInputElement;
-  clientAddressPostCode: HTMLInputElement;
-  clientAddressCountry: HTMLInputElement;
-}
-
 class Invoice {
   id: string;
   createdAt: string;

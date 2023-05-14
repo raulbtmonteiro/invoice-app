@@ -16,5 +16,6 @@ export const dark: Theme = {
     textHighlight: "#888EB0",
     valuesDescriptionContainer: "#252945",
     grandTotalBG: "#0C0E16",
+    error: "#EC5757",
   },
 };
