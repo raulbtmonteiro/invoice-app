@@ -16,5 +16,6 @@ export const light: Theme = {
     textHighlight: "#7E88C3",
     valuesDescriptionContainer: "#F9FAFE",
     grandTotalBG: "#373B53",
+    error: "#EC5757",
   },
 };

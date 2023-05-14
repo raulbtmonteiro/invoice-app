@@ -10,8 +10,7 @@ export const Input = styled.input`
   border: 1px solid #dfe3fa;
   border-radius: 4px;
   height: 48px;
-  padding: 16px 20px;
-  color: white;
+  padding: 16px min(20px, 25%);
 
   font-family: "Spartan";
   font-style: normal;
@@ -29,5 +28,9 @@ export const Input = styled.input`
   :focus {
     outline: none;
     border: 1px solid #9277ff;
+  }
+
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 `;

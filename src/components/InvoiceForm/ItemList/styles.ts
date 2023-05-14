@@ -21,6 +21,12 @@ export const ImgWrapper = styled.div<{ isFirst: boolean }>`
   align-items: center;
   cursor: pointer;
 
+  svg:hover {
+    path {
+      fill: ${({ theme }) => theme.colors.error};
+    }
+  }
+
   @media screen and (min-width: 481px) {
     margin-bottom: ${({ isFirst }) => (isFirst ? "0" : "24px")};
   }
@@ -58,4 +64,22 @@ export const Button = styled.button`
   letter-spacing: -0.25px;
 
   color: #7e88c3;
+`;
+
+export const Total = styled.span`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  height: 48px;
+  margin-bottom: 24px;
+
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+
+  letter-spacing: -0.25px;
+  color: #0c0e16;
 `;
