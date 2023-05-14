@@ -1,11 +1,11 @@
 import arrowLeft from "../../../../assets/images/icon-arrow-left.svg";
 import { DeleteInvoiceModal } from "../DeleteInvoiceModal";
 import { OptionsBarMobile } from "../OptionsBarMobile";
-import invoicesData from "../../../../data.json";
 import { formatDate } from "../../../../utils";
 import { useRef, useState } from "react";
 import { StatusBar } from "../StatusBar";
 import { ValuesBox } from "../ValuesBox";
+import { Invoice } from "../../../types";
 import { Link } from "react-router-dom";
 import * as S from "./styles";
 
@@ -17,7 +17,8 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
   const [showEditInvoiceModal, setShowEditInvoiceModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const goBackRef = useRef<HTMLAnchorElement>(null);
-  const invoice = invoicesData.find((invoice) => invoice.id === id);
+  const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
+  const invoice = invoices.find((invoice: Invoice) => invoice.id === id);
 
   if (invoice === undefined) {
     return null;

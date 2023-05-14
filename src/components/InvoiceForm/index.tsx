@@ -1,4 +1,5 @@
 import arrowLeft from "../../assets/images/icon-arrow-left.svg";
+import { InvoiceFactory, idGenerator } from "../../utils";
 import { SelectionZone } from "./SelectionZone";
 import { Invoice } from "../../views/types";
 import { GridLocator } from "./GridLocator";
@@ -7,8 +8,6 @@ import { InputForm } from "./InputForm";
 import { ItemList } from "./ItemList";
 import * as S from "./styles";
 
-import { useParams } from "react-router-dom";
-
 interface IInvoiceForm {
   invoice: Invoice | null;
   type: "new" | "edit";
@@ -16,16 +15,33 @@ interface IInvoiceForm {
 }
 
 export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
-  const params = useParams();
-  const title = type === "new" ? "New Invoice" : `Edit #${params.id}`;
+  const title = type === "new" ? "New Invoice" : `Edit #${invoice?.id}`;
 
   const handleGoBackClick = () => {
     document.body.style.overflow = "auto";
     setShowModal(false);
   };
 
+  const handleSubmit = (data: any) => {
+    data.preventDefault();
+    if (invoice === null) {
+      const id = idGenerator();
+      const status =
+        data.nativeEvent.submitter.id === "save-as-draft" ? "draft" : "pending";
+      return false;
+    }
+    const newInvoice = InvoiceFactory(
+      data.target.elements,
+      invoice.id,
+      invoice.status
+    );
+    newInvoice.toPrint();
+    newInvoice.toUpload();
+    handleGoBackClick();
+  };
+
   return (
-    <S.Container>
+    <S.Container onSubmitCapture={(data) => handleSubmit(data)}>
       <S.Back onClick={() => handleGoBackClick()}>
         <img src={arrowLeft} alt="arrow-left" />
         Go Back
@@ -36,42 +52,42 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
           <S.SectionTitle>Bill From</S.SectionTitle>
           <S.FormFrom>
             <GridLocator gridArea="street">
-              <LabelForm htmlFor="streetAddress" isVisible={true}>
+              <LabelForm htmlFor="senderAddressStreet" isVisible={true}>
                 Street Address
               </LabelForm>
               <InputForm
                 type="text"
-                id="streetAddress"
+                id="senderAddressStreet"
                 inicialValue={invoice?.senderAddress.street}
               />
             </GridLocator>
             <GridLocator gridArea="city">
-              <LabelForm htmlFor="city" isVisible={true}>
+              <LabelForm htmlFor="senderAddressCity" isVisible={true}>
                 City
               </LabelForm>
               <InputForm
                 type="text"
-                id="city"
+                id="senderAddressCity"
                 inicialValue={invoice?.senderAddress.city}
               />
             </GridLocator>
             <GridLocator gridArea="postCode">
-              <LabelForm htmlFor="postCode" isVisible={true}>
+              <LabelForm htmlFor="senderAddressPostCode" isVisible={true}>
                 Post Code
               </LabelForm>
               <InputForm
-                type="number"
-                id="postCode"
+                type="string"
+                id="senderAddressPostCode"
                 inicialValue={invoice?.senderAddress.postCode}
               />
             </GridLocator>
             <GridLocator gridArea="country">
-              <LabelForm htmlFor="country" isVisible={true}>
+              <LabelForm htmlFor="senderAddressCountry" isVisible={true}>
                 Country
               </LabelForm>
               <InputForm
                 type="text"
-                id="country"
+                id="senderAddressCountry"
                 inicialValue={invoice?.senderAddress.country}
               />
             </GridLocator>
@@ -101,54 +117,54 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
               />
             </GridLocator>
             <GridLocator gridArea="address">
-              <LabelForm htmlFor="streetAddress" isVisible={true}>
+              <LabelForm htmlFor="clientAddressStreet" isVisible={true}>
                 Street Address
               </LabelForm>
               <InputForm
                 type="text"
-                id="streetAddress"
+                id="clientAddressStreet"
                 inicialValue={invoice?.clientAddress.street}
               />
             </GridLocator>
             <GridLocator gridArea="city">
-              <LabelForm htmlFor="city" isVisible={true}>
+              <LabelForm htmlFor="clientAddressCity" isVisible={true}>
                 City
               </LabelForm>
               <InputForm
                 type="text"
-                id="city"
+                id="clientAddressCity"
                 inicialValue={invoice?.clientAddress.city}
               />
             </GridLocator>
             <GridLocator gridArea="postCode">
-              <LabelForm htmlFor="postCode" isVisible={true}>
+              <LabelForm htmlFor="clientAddressPostCode" isVisible={true}>
                 Post Code
               </LabelForm>
               <InputForm
-                type="number"
-                id="postCode"
+                type="string"
+                id="clientAddressPostCode"
                 inicialValue={invoice?.clientAddress.postCode}
               />
             </GridLocator>
             <GridLocator gridArea="country">
-              <LabelForm htmlFor="country" isVisible={true}>
+              <LabelForm htmlFor="clientAddressCountry" isVisible={true}>
                 Country
               </LabelForm>
               <InputForm
                 type="text"
-                id="country"
+                id="clientAddressCountry"
                 inicialValue={invoice?.clientAddress.country}
               />
             </GridLocator>
             <GridLocator gridArea="flex">
               <S.Wrapper>
-                <LabelForm htmlFor="invoiceDate" isVisible={true}>
+                <LabelForm htmlFor="createdAt" isVisible={true}>
                   Invoice Date
                 </LabelForm>
                 <InputForm
                   type="date"
-                  id="invoiceDate"
-                  inicialValue={invoice?.paymentDue}
+                  id="createdAt"
+                  inicialValue={invoice?.createdAt}
                 />
               </S.Wrapper>
               <S.Wrapper>
