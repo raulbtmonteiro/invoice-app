@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
   width: 100%;
   max-width: 100vh;
   display: flex;
@@ -57,7 +57,7 @@ export const SectionTitle = styled.h3`
   margin-bottom: 24px;
 `;
 
-export const FormFrom = styled.form`
+export const FormFrom = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -77,7 +77,7 @@ export const FormFrom = styled.form`
   }
 `;
 
-export const FormTo = styled.form`
+export const FormTo = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
