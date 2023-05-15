@@ -6,9 +6,16 @@ interface IInputForm {
   id: string;
   inicialValue?: string | number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
 }
 
-export const InputForm = ({ type, id, inicialValue, onChange }: IInputForm) => {
+export const InputForm = ({
+  type,
+  id,
+  inicialValue,
+  onChange,
+  placeholder,
+}: IInputForm) => {
   const INITIAL_STATE = inicialValue ? inicialValue : "";
   const [value, setValue] = useState<string | number>(INITIAL_STATE);
 
@@ -23,6 +30,7 @@ export const InputForm = ({ type, id, inicialValue, onChange }: IInputForm) => {
       id={id}
       value={value}
       onChange={(e) => handleOnChange(e)}
+      placeholder={placeholder}
     />
   );
 };
