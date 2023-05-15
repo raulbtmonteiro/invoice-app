@@ -1,5 +1,5 @@
 import arrowLeft from "../../assets/images/icon-arrow-left.svg";
-import { InvoiceFactory, idGenerator } from "../../utils";
+import { InvoiceFactory, formValidation, idGenerator } from "../../utils";
 import { SelectionZone } from "./SelectionZone";
 import { Invoice } from "../../views/types";
 import { GridLocator } from "./GridLocator";
@@ -7,6 +7,7 @@ import { LabelForm } from "./LabelForm";
 import { InputForm } from "./InputForm";
 import { ItemList } from "./ItemList";
 import * as S from "./styles";
+import "./styles.css";
 
 interface IInvoiceForm {
   invoice: Invoice | null;
@@ -24,13 +25,16 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
 
   const handleSubmit = (data: any) => {
     data.preventDefault();
+    console.log(data);
+    formValidation(data);
     if (invoice === null) {
       const id = idGenerator();
       const status =
         data.nativeEvent.submitter.id === "save-as-draft" ? "draft" : "pending";
-      //const newInvoice = InvoiceFactory(data.target.elements, id, status);
-      //newInvoice.toSave();
-      return false;
+      const newInvoice = InvoiceFactory(data.target.elements, id, status);
+      newInvoice.toSave();
+      handleGoBackClick();
+      return;
     }
     const newInvoice = InvoiceFactory(
       data.target.elements,
