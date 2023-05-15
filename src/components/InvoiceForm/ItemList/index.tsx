@@ -8,29 +8,28 @@ import * as S from "./styles";
 interface IRowItem {
   id: number;
   item: Item;
+  list: Item[];
+  setList: (items: Item[]) => void;
 }
 
-const RowItem = ({ id, item }: IRowItem) => {
+const RowItem = ({ id, item, list, setList }: IRowItem) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const isVisible = id === 0 ? true : false;
   const isFirst = id === 0 ? true : false;
   const [itemPrice, setItemPrice] = useState<number>(item.price);
   const [itemQty, setItemQty] = useState<number>(item.quantity);
-  const [itemTotal, setItemTotal] = useState<number>(
-    item.quantity * item.price
-  );
+  const total = parseFloat(item.total.toFixed(2));
+  const [itemTotal, setItemTotal] = useState<number>(total);
 
   const handleDelete = () => {
-    gridRef.current?.childNodes.forEach((child) =>
-      child.childNodes[1]?.remove()
-    );
+    setList(list.filter((item, index) => index !== id));
   };
 
   useEffect(() => {
     if (Number.isNaN(itemPrice) || Number.isNaN(itemQty)) {
       setItemTotal(0);
     } else {
-      setItemTotal((prevState) => itemPrice * itemQty);
+      setItemTotal(itemPrice * itemQty);
     }
   }, [itemPrice, itemQty]);
 
@@ -62,6 +61,7 @@ const RowItem = ({ id, item }: IRowItem) => {
           type="number"
           inicialValue={item.price}
           onChange={(e) => setItemPrice(parseFloat(e.target.value))}
+          placeholder="0,00"
         />
       </GridLocator>
       <GridLocator gridArea="itemTotal">
@@ -112,7 +112,13 @@ export const ItemList = ({ invoice }: IItemList) => {
     <>
       <S.Title>Item List</S.Title>
       {items.map((item, index) => (
-        <RowItem id={index} key={Math.random()} item={item} />
+        <RowItem
+          list={items}
+          setList={setItems}
+          id={index}
+          key={Math.random()}
+          item={item}
+        />
       ))}
       <S.Button onClick={(e) => addNewItem(e)}>+ Add New Item</S.Button>
     </>

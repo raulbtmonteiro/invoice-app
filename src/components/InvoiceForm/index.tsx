@@ -1,11 +1,12 @@
-import arrowLeft from "../../assets/images/icon-arrow-left.svg";
 import { InvoiceFactory, formValidation, idGenerator } from "../../utils";
+import arrowLeft from "../../assets/images/icon-arrow-left.svg";
 import { SelectionZone } from "./SelectionZone";
 import { Invoice } from "../../views/types";
 import { GridLocator } from "./GridLocator";
 import { LabelForm } from "./LabelForm";
 import { InputForm } from "./InputForm";
 import { ItemList } from "./ItemList";
+import { useState } from "react";
 import * as S from "./styles";
 import "./styles.css";
 
@@ -17,16 +18,22 @@ interface IInvoiceForm {
 
 export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
   const title = type === "new" ? "New Invoice" : `Edit #${invoice?.id}`;
+  const [error, setError] = useState<string | null>();
 
   const handleGoBackClick = () => {
     document.body.style.overflow = "auto";
     setShowModal(false);
+    setError(null);
   };
 
   const handleSubmit = (data: any) => {
     data.preventDefault();
-    console.log(data);
-    formValidation(data);
+    try {
+      formValidation(data);
+    } catch (err: any) {
+      setError(err.message);
+      return;
+    }
     if (invoice === null) {
       const id = idGenerator();
       const status =
@@ -199,6 +206,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
           </S.FormTo>
         </div>
+        <S.ErrorMessage>{error}</S.ErrorMessage>
       </S.ScrollZone>
       <SelectionZone type={type} handleGoBack={handleGoBackClick} />
     </S.Container>

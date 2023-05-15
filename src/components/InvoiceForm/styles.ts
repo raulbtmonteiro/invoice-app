@@ -107,7 +107,7 @@ export const FormTo = styled.section`
 `;
 
 export const ScrollZone = styled.div`
-  padding: 0 10px 0 24px;
+  padding: 0 10px 24px 24px;
   margin-right: 8px;
   overflow-y: scroll;
   height: 100%;
@@ -122,7 +122,7 @@ export const ScrollZone = styled.div`
   }
 
   @media screen and (min-width: 481px) {
-    padding: 0 40px 0 56px;
+    padding: 0 40px 24px 56px;
   }
 `;
 
@@ -130,4 +130,16 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`;
+
+export const ErrorMessage = styled.span`
+  font-family: "Spartan";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+
+  letter-spacing: -0.208333px;
+
+  color: #ec5757;
 `;

@@ -81,5 +81,5 @@ export const Total = styled.span`
   line-height: 15px;
 
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: #888eb0;
 `;
