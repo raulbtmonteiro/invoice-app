@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div<{ isModalOpen: boolean }>`
   display: flex;
-  height: calc(100vh - 72px);
+  height: calc(100dvh - 72px);
   background-color: white;
   width: 100%;
   position: absolute;
