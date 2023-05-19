@@ -47,12 +47,12 @@ export const OptionsBarMobile = ({
   return (
     <S.OptionsBarContainer>
       <OptionButton
-        text={t("invoicePage.optionsBar.markAsPaid")}
+        text={t("invoicePage.optionsBar.edit")}
         color="#252945"
         handleClick={() => handleEditClick()}
       />
       <OptionButton
-        text={t("invoicePage.optionsBar.markAsPaid")}
+        text={t("invoicePage.optionsBar.delete")}
         color="#EC5757"
         handleClick={openDeleteModal}
       />
