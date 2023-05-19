@@ -2,19 +2,23 @@ import { formatCurrency } from "../../../../utils";
 import { Invoice } from "../../../types";
 import * as S from "./styles";
 
+import { useTranslation } from "react-i18next";
+
 interface IValuesBox {
   invoice: Invoice;
 }
 
 export const ValuesBox = ({ invoice }: IValuesBox) => {
+  const { t } = useTranslation() 
+
   return (
     <S.ValuesContainer>
       <S.ValuesDescriptionContainer>
         <S.Table>
-          <div>Item Name</div>
-          <div>QTY.</div>
-          <div>Price</div>
-          <div>Total</div>
+          <div>{t("invoicePage.valuesBox.itemName")}</div>
+          <div>{t("invoicePage.valuesBox.qty")}</div>
+          <div>{t("invoicePage.valuesBox.price")}</div>
+          <div>{t("invoicePage.valuesBox.total")}</div>
         </S.Table>
         {invoice?.items.map((item) => {
           return (
@@ -35,7 +39,7 @@ export const ValuesBox = ({ invoice }: IValuesBox) => {
         })}
       </S.ValuesDescriptionContainer>
       <S.TotalContainer>
-        <S.TotalText>Grand Total</S.TotalText>
+        <S.TotalText>{t("invoicePage.valuesBox.grandTotal")}</S.TotalText>
         <S.Total>{formatCurrency(invoice.total)}</S.Total>
       </S.TotalContainer>
     </S.ValuesContainer>

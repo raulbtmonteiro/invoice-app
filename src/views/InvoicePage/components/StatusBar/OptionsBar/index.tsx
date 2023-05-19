@@ -1,8 +1,8 @@
 import { OptionButton } from "../../OptionsBarMobile/OptionButton";
-import { EditInvoiceModal } from "../EditInvoice";
 import { Invoice } from "../../../../types";
-import { useState } from "react";
 import * as S from "./styles";
+
+import { useTranslation } from "react-i18next";
 
 interface IOptionsBar {
   id: string;
@@ -21,6 +21,7 @@ export const OptionsBar = ({
   setShowModal,
   setShowEditInvoiceModal,
 }: IOptionsBar) => {
+  const { t } = useTranslation();
   const openDeleteModal = () => {
     setShowModal(!showModal);
   };
@@ -45,17 +46,17 @@ export const OptionsBar = ({
   return (
     <S.OptionsBarContainer>
       <OptionButton
-        text="Edit"
+        text={t("invoicePage.optionsBar.edit")}
         color="#252945"
         handleClick={() => handleEditClick()}
       />
       <OptionButton
-        text="Delete"
+        text={t("invoicePage.optionsBar.delete")}
         color="#EC5757"
         handleClick={openDeleteModal}
       />
       <OptionButton
-        text="Mark as Paid"
+        text={t("invoicePage.optionsBar.markAsPaid")}
         color="#7C5DFA"
         disabled={["paid", "draft"].includes(status)}
         handleClick={markAsPaid}

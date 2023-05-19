@@ -4,6 +4,7 @@ import { Theme } from "../../../../themes/types";
 import * as S from "./styles";
 import "./styles.css";
 
+import { useTranslation } from "react-i18next";
 import ReactModal from "react-modal";
 import Modal from "react-modal";
 
@@ -20,6 +21,7 @@ export const DeleteInvoiceModal = ({
   id,
   goBackRef,
 }: IDeleteInvoiceModal) => {
+  const { t } = useTranslation();
   const [width, setWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(width < 481);
   const theme: Theme = useContext(ThemeContext);
@@ -79,7 +81,7 @@ export const DeleteInvoiceModal = ({
       onRequestClose={() => closeModal()}
       shouldCloseOnOverlayClick={true}
     >
-      <S.Title>Confirm Deletion</S.Title>
+      <S.Title>{t("invoicePage.deleteInvoiceModal.title")}</S.Title>
       <S.Description>
         Are you sure you want to delete invoice #{id}? This action cannot be
         undone.
@@ -89,10 +91,10 @@ export const DeleteInvoiceModal = ({
           color={theme.colors.valuesDescriptionContainer}
           onClick={() => closeModal()}
         >
-          Cancel
+          {t("invoicePage.deleteInvoiceModal.cancel")}
         </S.Button>
         <S.Button color="#EC5757" onClick={() => deleteInvoice()}>
-          Delete
+          {t("invoicePage.deleteInvoiceModal.delete")}
         </S.Button>
       </S.ButtonsContainer>
     </ReactModal>
