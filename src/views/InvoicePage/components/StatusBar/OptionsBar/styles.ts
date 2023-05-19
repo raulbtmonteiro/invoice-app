@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const OptionsBarContainer = styled.div`
   display: none;
@@ -7,7 +7,7 @@ export const OptionsBarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 309px;
+    gap: 8px;
     height: 91px;
   }
 `;

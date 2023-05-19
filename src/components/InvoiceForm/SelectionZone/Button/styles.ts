@@ -11,6 +11,9 @@ export const Button = styled.button<{
   border: none;
   cursor: pointer;
   height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-family: "Spartan";
   font-style: normal;
