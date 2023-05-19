@@ -9,7 +9,9 @@
   "deleteInvoiceModal": {
     "title": "Confirmar Exclusão",
     "cancel": "Cancelar",
-    "delete": "Deletar"
+    "delete": "Deletar",
+    "message": "Certeza que desaja excluir a nota ",
+    "warning": "Esta ação não pode ser desfeita."
   },
   "invoiceCard": {
     "goBack": "Voltar",

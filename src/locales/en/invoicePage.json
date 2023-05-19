@@ -9,7 +9,9 @@
   "deleteInvoiceModal": {
     "title": "Confirm Deletion",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+    "message": "Are you sure you want to delete invoice ",
+    "warning": "This action cannot be undone."
   },
   "invoiceCard": {
     "goBack": "Go Back",

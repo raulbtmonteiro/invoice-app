@@ -3,7 +3,7 @@
     "goBack": "Go Back",
     "title": {
       "new": "New Invoice",
-      "edit": "Edit Invoice"
+      "edit": "Edit "
     },
     "billFrom": "Bill From",
     "streetAddress": "Street Address",
