@@ -10,6 +10,8 @@ import { useState } from "react";
 import * as S from "./styles";
 import "./styles.css";
 
+import { useTranslation } from "react-i18next";
+
 interface IInvoiceForm {
   invoice: Invoice | null;
   type: "new" | "edit";
@@ -17,7 +19,11 @@ interface IInvoiceForm {
 }
 
 export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
-  const title = type === "new" ? "New Invoice" : `Edit #${invoice?.id}`;
+  const { t } = useTranslation();
+  const title =
+    type === "new"
+      ? t("components.invoiceForm.title.new")
+      : `Edit #${invoice?.id}`;
   const [error, setError] = useState<string | null>();
 
   const handleGoBackClick = () => {
@@ -57,16 +63,18 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
     <S.Container onSubmitCapture={(data) => handleSubmit(data)}>
       <S.Back onClick={() => handleGoBackClick()}>
         <img src={arrowLeft} alt="arrow-left" />
-        Go Back
+        {t("components.invoiceForm.goBack")}
       </S.Back>
       <S.Title>{title}</S.Title>
       <S.ScrollZone>
         <div>
-          <S.SectionTitle>Bill From</S.SectionTitle>
+          <S.SectionTitle>
+            {t("components.invoiceForm.billFrom")}
+          </S.SectionTitle>
           <S.FormFrom>
             <GridLocator gridArea="street">
               <LabelForm htmlFor="senderAddressStreet" isVisible={true}>
-                Street Address
+                {t("components.invoiceForm.streetAddress")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -76,7 +84,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="city">
               <LabelForm htmlFor="senderAddressCity" isVisible={true}>
-                City
+                {t("components.invoiceForm.city")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -86,7 +94,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="postCode">
               <LabelForm htmlFor="senderAddressPostCode" isVisible={true}>
-                Post Code
+                {t("components.invoiceForm.postCode")}
               </LabelForm>
               <InputForm
                 type="string"
@@ -96,7 +104,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="country">
               <LabelForm htmlFor="senderAddressCountry" isVisible={true}>
-                Country
+                {t("components.invoiceForm.country")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -107,11 +115,11 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
           </S.FormFrom>
         </div>
         <div>
-          <S.SectionTitle>Bill To</S.SectionTitle>
+          <S.SectionTitle>{t("components.invoiceForm.billTo")}</S.SectionTitle>
           <S.FormTo>
             <GridLocator gridArea="name">
               <LabelForm htmlFor="clientName" isVisible={true}>
-                Client's Name
+                {t("components.invoiceForm.clientName")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -121,7 +129,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="email">
               <LabelForm htmlFor="clientEmail" isVisible={true}>
-                Client's Email
+                {t("components.invoiceForm.clientEmail")}
               </LabelForm>
               <InputForm
                 type="email"
@@ -131,7 +139,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="address">
               <LabelForm htmlFor="clientAddressStreet" isVisible={true}>
-                Street Address
+                {t("components.invoiceForm.streetAddress")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -141,7 +149,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="city">
               <LabelForm htmlFor="clientAddressCity" isVisible={true}>
-                City
+                {t("components.invoiceForm.city")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -151,7 +159,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="postCode">
               <LabelForm htmlFor="clientAddressPostCode" isVisible={true}>
-                Post Code
+                {t("components.invoiceForm.postCode")}
               </LabelForm>
               <InputForm
                 type="string"
@@ -161,7 +169,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="country">
               <LabelForm htmlFor="clientAddressCountry" isVisible={true}>
-                Country
+                {t("components.invoiceForm.country")}
               </LabelForm>
               <InputForm
                 type="text"
@@ -172,7 +180,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             <GridLocator gridArea="flex">
               <S.Wrapper>
                 <LabelForm htmlFor="createdAt" isVisible={true}>
-                  Invoice Date
+                  {t("components.invoiceForm.invoiceDate")}
                 </LabelForm>
                 <InputForm
                   type="date"
@@ -182,7 +190,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
               </S.Wrapper>
               <S.Wrapper>
                 <LabelForm htmlFor="paymentTerms" isVisible={true}>
-                  Payment Terms
+                  {t("components.invoiceForm.paymentTerms")}
                 </LabelForm>
                 <InputForm
                   type="text"
@@ -193,7 +201,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
             </GridLocator>
             <GridLocator gridArea="description">
               <LabelForm htmlFor="description" isVisible={true}>
-                Project Description
+                {t("components.invoiceForm.projectDescription")}
               </LabelForm>
               <InputForm
                 type="text"

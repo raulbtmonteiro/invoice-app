@@ -5,6 +5,8 @@ import { InputForm } from "../InputForm";
 import { LabelForm } from "../LabelForm";
 import * as S from "./styles";
 
+import { useTranslation } from "react-i18next";
+
 interface IRowItem {
   id: number;
   item: Item;
@@ -13,6 +15,7 @@ interface IRowItem {
 }
 
 const RowItem = ({ id, item, list, setList }: IRowItem) => {
+  const { t } = useTranslation();
   const gridRef = useRef<HTMLDivElement>(null);
   const isVisible = id === 0 ? true : false;
   const isFirst = id === 0 ? true : false;
@@ -37,13 +40,13 @@ const RowItem = ({ id, item, list, setList }: IRowItem) => {
     <S.Grid id={`item-${id}`} ref={gridRef}>
       <GridLocator gridArea="itemName">
         <LabelForm htmlFor="itemName" isVisible={isVisible}>
-          Item Name
+          {t("components.invoiceForm.itemList.itemName")}
         </LabelForm>
         <InputForm id="itemName" type="text" inicialValue={item.name} />
       </GridLocator>
       <GridLocator gridArea="itemQty">
         <LabelForm htmlFor="itemQty" isVisible={isVisible}>
-          QTY.
+          {t("components.invoiceForm.itemList.itemQty")}
         </LabelForm>
         <InputForm
           id="itemQty"
@@ -54,7 +57,7 @@ const RowItem = ({ id, item, list, setList }: IRowItem) => {
       </GridLocator>
       <GridLocator gridArea="itemPrice">
         <LabelForm htmlFor="itemPrice" isVisible={isVisible}>
-          Price
+          {t("components.invoiceForm.itemList.itemPrice")}
         </LabelForm>
         <InputForm
           id="itemPrice"
@@ -66,7 +69,7 @@ const RowItem = ({ id, item, list, setList }: IRowItem) => {
       </GridLocator>
       <GridLocator gridArea="itemTotal">
         <LabelForm htmlFor="itemTotal" isVisible={isVisible}>
-          Total
+          {t("components.invoiceForm.itemList.itemTotal")}
         </LabelForm>
         <S.Total>{Number(itemTotal.toFixed(2)).toString()}</S.Total>
       </GridLocator>
@@ -98,6 +101,7 @@ interface IItemList {
 }
 
 export const ItemList = ({ invoice }: IItemList) => {
+  const { t } = useTranslation();
   const INITIAL_STATE = invoice?.items
     ? invoice.items
     : [{ name: "", quantity: 0, price: 0, total: 0 }];
@@ -110,7 +114,7 @@ export const ItemList = ({ invoice }: IItemList) => {
 
   return (
     <>
-      <S.Title>Item List</S.Title>
+      <S.Title>{t("components.invoiceForm.itemList.title")}</S.Title>
       {items.map((item, index) => (
         <RowItem
           list={items}
@@ -120,7 +124,9 @@ export const ItemList = ({ invoice }: IItemList) => {
           item={item}
         />
       ))}
-      <S.Button onClick={(e) => addNewItem(e)}>+ Add New Item</S.Button>
+      <S.Button onClick={(e) => addNewItem(e)}>
+        {t("components.invoiceForm.itemList.button")}
+      </S.Button>
     </>
   );
 };

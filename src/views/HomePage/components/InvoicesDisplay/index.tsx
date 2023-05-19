@@ -37,12 +37,14 @@ export const InvoicesDisplay = () => {
       />
       <S.DisplayInfo>
         <S.FlexLeft>
-          <S.DisplayInfoTitle>{t("invoicesDisplay.title")}</S.DisplayInfoTitle>
+          <S.DisplayInfoTitle>
+            {t("home.invoicesDisplay.title")}
+          </S.DisplayInfoTitle>
           <S.DisplayInfoAmount>
             {filteredData.length}{" "}
             {filteredData.length > 1
-              ? t("invoicesDisplay.multipleAmount")
-              : t("invoicesDisplay.singleAmount")}
+              ? t("home.invoicesDisplay.multipleAmount")
+              : t("home.invoicesDisplay.singleAmount")}
           </S.DisplayInfoAmount>
         </S.FlexLeft>
 
@@ -57,9 +59,9 @@ export const InvoicesDisplay = () => {
               <img src={plus} />
             </S.PlusImage>
             <p>
-              {t("invoicesDisplay.button")}{" "}
+              {t("home.invoicesDisplay.button")}{" "}
               <S.HiddenText>
-                {t("invoicesDisplay.buttonHidenText")}
+                {t("home.invoicesDisplay.buttonHidenText")}
               </S.HiddenText>
             </p>
           </S.NewInvoiceButtom>
@@ -74,9 +76,14 @@ export const InvoicesDisplay = () => {
         ) : (
           <S.EmptyDisplay>
             <img src={emailCard} />
-            <S.EmptyTitle>{t("invoicesDisplay.emptyCardTitle")}</S.EmptyTitle>
+            <S.EmptyTitle>
+              {t("home.invoicesDisplay.emptyCardTitle")}
+            </S.EmptyTitle>
             <S.EmptyDescription>
-              <Trans t={t} i18nKey="invoicesDisplay.emptyCardDescription" />
+              <Trans
+                t={t}
+                i18nKey="home.invoicesDisplay.emptyCardDescription"
+              />
             </S.EmptyDescription>
           </S.EmptyDisplay>
         )}

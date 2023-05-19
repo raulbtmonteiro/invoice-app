@@ -1,0 +1,37 @@
+{
+  "invoiceForm": {
+    "goBack": "Voltar",
+    "title": {
+      "new": "Nova Nota",
+      "edit": "Editar Nota"
+    },
+    "billFrom": "Conta De",
+    "streetAddress": "Endereço",
+    "city": "Cidade",
+    "postCode": "CEP",
+    "country": "País",
+    "billTo": "Conta Para",
+    "clientName": "Nome do Cliente",
+    "clientEmail": "Email do Cliente",
+    "invoiceDate": "Data da Nota",
+    "paymentTerms": "Prazo de Pagamento",
+    "projectDescription": "Descrição do Projeto",
+
+    "itemList": {
+      "title": "Lista de Itens",
+      "button": "+ Adicionar Item",
+      "itemName": "Nome do Item",
+      "itemQty": "QTD.",
+      "itemPrice": "Preço",
+      "itemTotal": "Total"
+    },
+
+    "selectionZone": {
+      "discard": "Descartar",
+      "cancel": "Cancelar",
+      "saveSend": "Salvar e Enviar",
+      "saveDraft": "Salvar Rascunho",
+      "saveChanges": "Salvar Alterações"
+    }
+  }
+}

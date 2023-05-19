@@ -3,16 +3,16 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: "SpartanRegular";
+    font-family: "Spartan";
     font-style: normal;
-    src: url(${SpartanRegular}) format("ttf")
+    src: url(${SpartanRegular})
   }
 
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'SpartanRegular', sans-serif;
+    font-family: 'Spartan', sans-serif;
   }
 
   body{

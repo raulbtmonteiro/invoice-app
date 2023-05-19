@@ -23,7 +23,7 @@ export const Filter = ({ activeFilter, setActiveFilter }: IFilter) => {
   return (
     <>
       <S.Wrapper onClick={() => handleClick()}>
-        {t("filter.title")}
+        {t("home.filter.title")}
         <S.FilterArrow src={arrowDown} isOpen={isOpen} />
       </S.Wrapper>
       {showOptions && (
