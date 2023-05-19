@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ValuesContainer = styled.div`
   display: flex;
@@ -22,16 +22,16 @@ export const Table = styled.div`
   @media screen and (min-width: 481px) {
     display: flex;
     justify-content: space-between;
-    div{
+    div {
       width: 70px;
       display: flex;
       justify-content: flex-end;
     }
-    div:first-child{
+    div:first-child {
       width: 120px;
       justify-content: flex-start;
     }
-    div:nth-child(2){
+    div:nth-child(2) {
       width: 30px;
       justify-content: center;
     }
@@ -50,7 +50,7 @@ export const DescriptionName = styled.div`
   line-height: 15px;
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.colors.title};
-  //margin-bottom: 8px;
+  margin-bottom: 8px;
   width: 150px;
 `;
 
