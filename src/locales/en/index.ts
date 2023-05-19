@@ -1,3 +1,9 @@
-import home from './home.json';
+import components from "./components.json";
+import home from "./home.json";
+import invoicePage from "./invoicePage.json";
 
-export const en = home;
+export const en = {
+  components,
+  home,
+  invoicePage,
+};

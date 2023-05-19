@@ -1,12 +1,16 @@
 import { Button } from "./Button";
 import * as S from "./styles";
 
+import { useTranslation } from "react-i18next";
+
 interface ISelectionZone {
   type: string;
   handleGoBack?: () => void;
 }
 
 export const SelectionZone = ({ type, handleGoBack }: ISelectionZone) => {
+  const { t } = useTranslation();
+
   return (
     <S.Container type={type}>
       {type === "new" && (
@@ -16,7 +20,7 @@ export const SelectionZone = ({ type, handleGoBack }: ISelectionZone) => {
           type="reset"
           onClick={handleGoBack}
         >
-          Discard
+          {t("components.invoiceForm.selectionZone.discard")}
         </Button>
       )}
       <S.Flex>
@@ -27,10 +31,14 @@ export const SelectionZone = ({ type, handleGoBack }: ISelectionZone) => {
           type={type === "new" ? "submit" : "reset"}
           onClick={type === "edit" ? handleGoBack : undefined}
         >
-          {type === "new" ? "Save as Draft" : "Cancel"}
+          {type === "new"
+            ? t("components.invoiceForm.selectionZone.saveDraft")
+            : t("components.invoiceForm.selectionZone.cancel")}
         </Button>
         <Button backgroundColor="#7C5DFA" textColor="#FFF" type="submit">
-          {type === "new" ? "Save & Send" : "Save Changes"}
+          {type === "new"
+            ? t("components.invoiceForm.selectionZone.saveSend")
+            : t("components.invoiceForm.selectionZone.saveChanges")}
         </Button>
       </S.Flex>
     </S.Container>

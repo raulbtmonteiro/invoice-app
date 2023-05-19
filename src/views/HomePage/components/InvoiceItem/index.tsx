@@ -31,7 +31,7 @@ export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
             {invoice.id}
           </S.Id>
           <S.InvoiceDate>
-            {t("invoiceItem.info")} {formatDate(invoice.paymentDue)}
+            {t("home.invoiceItem.info")} {formatDate(invoice.paymentDue)}
           </S.InvoiceDate>
           <S.Name>{invoice.clientName}</S.Name>
           <S.Value>{formatCurrency(invoice.total)}</S.Value>

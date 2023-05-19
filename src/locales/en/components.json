@@ -1,0 +1,37 @@
+{
+  "invoiceForm": {
+    "goBack": "Go Back",
+    "title": {
+      "new": "New Invoice",
+      "edit": "Edit Invoice"
+    },
+    "billFrom": "Bill From",
+    "streetAddress": "Street Address",
+    "city": "City",
+    "postCode": "Post Code",
+    "country": "Country",
+    "billTo": "Bill To",
+    "clientName": "Client's Name",
+    "clientEmail": "Client's Email",
+    "invoiceDate": "Invoice Date",
+    "paymentTerms": "Payment Terms",
+    "projectDescription": "Project Description",
+
+    "itemList": {
+      "title": "Item List",
+      "button": "+ Add New Item",
+      "itemName": "Item Name",
+      "itemQty": "QTY.",
+      "itemPrice": "Price",
+      "itemTotal": "Total"
+    },
+
+    "selectionZone": {
+      "discard": "Discard",
+      "cancel": "Cancel",
+      "saveSend": "Save & Send",
+      "saveDraft": "Save as Draft",
+      "saveChanges": "Save Changes"
+    }
+  }
+}
