@@ -50,8 +50,8 @@ export const DescriptionName = styled.div`
   line-height: 15px;
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.colors.title};
-  margin-bottom: 8px;
-  width: 120px;
+  //margin-bottom: 8px;
+  width: 150px;
 `;
 
 export const DescriptionPriceMobile = styled.div`
@@ -93,7 +93,7 @@ export const DescriptionPrice = styled.div`
     font-size: 12px;
     line-height: 15px;
     letter-spacing: -0.25px;
-    width: 70px;
+    width: 90px;
     color: ${({ theme }) => theme.colors.textHighlight};
   }
 `;
@@ -108,7 +108,7 @@ export const TotalPrice = styled.div`
   @media screen and (min-width: 481px) {
     display: flex;
     justify-content: flex-end;
-    width: 70px;
+    width: 90px;
   }
 `;
 

@@ -1,3 +1,29 @@
 {
-  "invoicePage": "test"
+  "valuesBox": {
+    "itemName": "Item Name",
+    "qty": "QTY.",
+    "price": "Price",
+    "total": "Total",
+    "grandTotal": "Grand Total"
+  },
+  "deleteInvoiceModal": {
+    "title": "Confirm Deletion",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "invoiceCard": {
+    "goBack": "Go Back",
+    "invoiceDate": "Invoice Date",
+    "paymentDue": "Payment Due",
+    "billTo": "Bill To",
+    "sendTo": "Send To"
+  },
+  "statusBar": {
+    "status": "Status"
+  },
+  "optionsBar": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "markAsPaid": "Mark as Paid"
+  }
 }

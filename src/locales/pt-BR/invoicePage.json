@@ -1,3 +1,29 @@
 {
-  "invoicePage": "teste"
+  "valuesBox": {
+    "itemName": "Nome do Item",
+    "qty": "QTD.",
+    "price": "Preço",
+    "total": "Total",
+    "grandTotal": "Valor Total"
+  },
+  "deleteInvoiceModal": {
+    "title": "Confirmar Exclusão",
+    "cancel": "Cancelar",
+    "delete": "Deletar"
+  },
+  "invoiceCard": {
+    "goBack": "Voltar",
+    "invoiceDate": "Data de Emissão",
+    "paymentDue": "Vencimento",
+    "billTo": "Cliente",
+    "sendTo": "Enviar para"
+  },
+  "statusBar": {
+    "status": "Status"
+  },
+  "optionsBar": {
+    "edit": "Editar",
+    "delete": "Deletar",
+    "markAsPaid": "Marcar como Pago"
+  }
 }

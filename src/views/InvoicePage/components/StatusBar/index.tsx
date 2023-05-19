@@ -1,10 +1,12 @@
 import { selectStatusColor } from "../../../../utils";
 import { ThemeContext } from "styled-components";
-import { Theme } from "../../../../themes/types";
-import { useContext, useState } from "react";
-import { OptionsBar } from "./OptionsBar";
-import * as S from "./styles";
 import { EditInvoiceModal } from "./EditInvoice";
+import { Theme } from "../../../../themes/types";
+import { OptionsBar } from "./OptionsBar";
+import { useContext } from "react";
+import * as S from "./styles";
+
+import { useTranslation } from "react-i18next";
 
 interface ISetupBar {
   id: string;
@@ -25,6 +27,7 @@ export const StatusBar = ({
   showEditInvoiceModal,
   setShowEditInvoiceModal,
 }: ISetupBar) => {
+  const { t } = useTranslation();
   const theme: Theme = useContext(ThemeContext);
 
   return (
@@ -34,7 +37,7 @@ export const StatusBar = ({
         setShowEditInvoiceModal={setShowEditInvoiceModal}
       />
       <S.StatusWrapper>
-        Status
+        {t("invoicePage.statusBar.status")}
         <S.Status theme={selectStatusColor(theme, status)}>
           <div></div>
           {status}

@@ -6,14 +6,17 @@ import { useRef, useState } from "react";
 import { StatusBar } from "../StatusBar";
 import { ValuesBox } from "../ValuesBox";
 import { Invoice } from "../../../types";
-import { Link } from "react-router-dom";
 import * as S from "./styles";
+
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface IInvoiceCard {
   id: string;
 }
 
 export const InvoiceCard = ({ id }: IInvoiceCard) => {
+  const { t } = useTranslation();
   const [showEditInvoiceModal, setShowEditInvoiceModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const goBackRef = useRef<HTMLAnchorElement>(null);
@@ -38,7 +41,7 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
         <Link to="/" ref={goBackRef}>
           <S.Back>
             <img src={arrowLeft} alt="arrow-left" />
-            Go Back
+            {t("invoicePage.invoiceCard.goBack")}
           </S.Back>
         </Link>
 
@@ -71,15 +74,19 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
 
           <S.ClientInfoContainer>
             <S.InvoiceDate>
-              <S.InfoTitle>Invoice Date</S.InfoTitle>
+              <S.InfoTitle>
+                {t("invoicePage.invoiceCard.invoiceDate")}
+              </S.InfoTitle>
               <S.Info>{formatDate(invoice.createdAt)}</S.Info>
             </S.InvoiceDate>
             <S.PaymentDue>
-              <S.InfoTitle>Payment Due</S.InfoTitle>
+              <S.InfoTitle>
+                {t("invoicePage.invoiceCard.paymentDue")}
+              </S.InfoTitle>
               <S.Info>{formatDate(invoice.paymentDue)}</S.Info>
             </S.PaymentDue>
             <S.ClientInfoWrapper>
-              <S.InfoTitle>Bill To</S.InfoTitle>
+              <S.InfoTitle>{t("invoicePage.invoiceCard.billTo")}</S.InfoTitle>
               <S.Info>{invoice.clientName}</S.Info>
               <div>
                 <p>{invoice.clientAddress.street}</p>
@@ -89,7 +96,7 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
               </div>
             </S.ClientInfoWrapper>
             <S.SendTo>
-              <S.InfoTitle>Send To</S.InfoTitle>
+              <S.InfoTitle>{t("invoicePage.invoiceCard.sendTo")}</S.InfoTitle>
               <S.Info>{invoice.clientEmail}</S.Info>
             </S.SendTo>
           </S.ClientInfoContainer>
