@@ -83,8 +83,8 @@ export const DeleteInvoiceModal = ({
     >
       <S.Title>{t("invoicePage.deleteInvoiceModal.title")}</S.Title>
       <S.Description>
-        Are you sure you want to delete invoice #{id}? This action cannot be
-        undone.
+        {t("invoicePage.deleteInvoiceModal.message")} #{id}?{" "}
+        {t("invoicePage.deleteInvoiceModal.warning")}
       </S.Description>
       <S.ButtonsContainer>
         <S.Button

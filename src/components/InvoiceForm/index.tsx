@@ -23,7 +23,7 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
   const title =
     type === "new"
       ? t("components.invoiceForm.title.new")
-      : `Edit #${invoice?.id}`;
+      : `${t("components.invoiceForm.title.edit")} #${invoice?.id}`;
   const [error, setError] = useState<string | null>();
 
   const handleGoBackClick = () => {
