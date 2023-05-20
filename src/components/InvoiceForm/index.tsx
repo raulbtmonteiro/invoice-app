@@ -3,6 +3,7 @@ import arrowLeft from "../../assets/images/icon-arrow-left.svg";
 import { SelectionZone } from "./SelectionZone";
 import { Invoice } from "../../views/types";
 import { GridLocator } from "./GridLocator";
+import { SelectForm } from "./SelectForm";
 import { LabelForm } from "./LabelForm";
 import { InputForm } from "./InputForm";
 import { ItemList } from "./ItemList";
@@ -58,6 +59,25 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
     newInvoice.toUpload();
     handleGoBackClick();
   };
+
+  const paymentTerms = [
+    {
+      name: "Next 1 Day",
+      value: 1,
+    },
+    {
+      name: "Next 7 Days",
+      value: 7,
+    },
+    {
+      name: "Next 14 Days",
+      value: 14,
+    },
+    {
+      name: "Next 30 Days",
+      value: 30,
+    },
+  ];
 
   return (
     <S.Container onSubmitCapture={(data) => handleSubmit(data)}>
@@ -192,9 +212,9 @@ export const InvoiceForm = ({ invoice, type, setShowModal }: IInvoiceForm) => {
                 <LabelForm htmlFor="paymentTerms" isVisible={true}>
                   {t("components.invoiceForm.paymentTerms")}
                 </LabelForm>
-                <InputForm
-                  type="text"
+                <SelectForm
                   id="paymentTerms"
+                  options={paymentTerms}
                   inicialValue={invoice?.paymentTerms}
                 />
               </S.Wrapper>
