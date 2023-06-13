@@ -2,13 +2,14 @@ import arrowLeft from "../../../../assets/images/icon-arrow-left.svg";
 import { DeleteInvoiceModal } from "../DeleteInvoiceModal";
 import { OptionsBarMobile } from "../OptionsBarMobile";
 import { formatDate } from "../../../../utils";
-import { useRef, useState } from "react";
 import { StatusBar } from "../StatusBar";
 import { ValuesBox } from "../ValuesBox";
 import { Invoice } from "../../../types";
+import data from "../../../../data.json";
 import * as S from "./styles";
 
 import { useTranslation } from "react-i18next";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface IInvoiceCard {
@@ -20,8 +21,17 @@ export const InvoiceCard = ({ id }: IInvoiceCard) => {
   const [showEditInvoiceModal, setShowEditInvoiceModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const goBackRef = useRef<HTMLAnchorElement>(null);
-  const invoices = JSON.parse(localStorage.getItem("invoices") || "[]");
-  const invoice = invoices.find((invoice: Invoice) => invoice.id === id);
+
+  const storedData = localStorage.getItem("invoices");
+  let invoice: Invoice | undefined;
+
+  if (storedData === null) {
+    localStorage.setItem("invoices", JSON.stringify(data));
+    invoice = data.find((invoice: Invoice) => invoice.id === id);
+  } else {
+    const invoices = JSON.parse(storedData);
+    invoice = invoices.find((invoice: Invoice) => invoice.id === id);
+  }
 
   if (invoice === undefined) {
     return null;
