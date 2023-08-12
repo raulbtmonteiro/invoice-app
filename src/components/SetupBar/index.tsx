@@ -9,16 +9,20 @@ import usa from "../../assets/images/us.svg";
 import * as S from "./styles";
 
 import { Link } from "react-router-dom";
-import i18next from "i18next";
+//import { i18n } from "i18next";
 
-export const SetupBar = () => {
+interface ISetupBar {
+  i18next: any;
+}
+
+export const SetupBar = ({ i18next }: ISetupBar) => {
   const { toggleTheme, theme } = useContext(ThemePreferencesContext);
-  const [ lang, setLang ] = useState(i18next.language);
+  const [lang, setLang] = useState(i18next.language);
 
   const icon = theme.title === "dark" ? moon : sun;
 
   const flag = useCallback(() => {
-    return lang === "en" ? usa : brazil
+    return lang === "en" ? usa : brazil;
   }, [lang]);
 
   const handleClick = () => {
