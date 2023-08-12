@@ -10,8 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/i18next": "^13.0.0",
     "@types/node": "^18.11.18",
     "i18next": "^22.4.15",
+    "i18next-http-backend": "^2.2.1",
     "jest-environment-jsdom": "^29.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
