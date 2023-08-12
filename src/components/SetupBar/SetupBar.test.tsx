@@ -34,11 +34,21 @@ describe("<SetupBar />", () => {
     expect(languageIcon).toBeInTheDocument();
   });
 
-  it("should toggle theme correctly", () => {
+  it("should toggle theme on click", () => {
     renderComponent();
 
     const themeIcon = screen.getByAltText("Ícone do tema atual");
     expect(themeIcon).toBeInTheDocument();
     fireEvent.click(themeIcon);
+    //expect(toggleThemeMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("should change language on click", () => {
+    renderComponent();
+
+    const flagIcon = screen.getByAltText("Ícone do idioma atual");
+    expect(flagIcon).toBeInTheDocument();
+    fireEvent.click(flagIcon);
+    expect(i18nextMock.changeLanguage).toHaveBeenCalledTimes(1);
   });
 });

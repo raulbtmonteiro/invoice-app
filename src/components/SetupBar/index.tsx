@@ -9,7 +9,6 @@ import usa from "../../assets/images/us.svg";
 import * as S from "./styles";
 
 import { Link } from "react-router-dom";
-//import { i18n } from "i18next";
 
 interface ISetupBar {
   i18next: any;
