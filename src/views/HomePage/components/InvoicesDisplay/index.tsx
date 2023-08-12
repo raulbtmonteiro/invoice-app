@@ -54,9 +54,12 @@ export const InvoicesDisplay = () => {
             setActiveFilter={setActiveFilter}
           />
 
-          <S.NewInvoiceButtom onClick={() => handleNewInvoiceClick()}>
+          <S.NewInvoiceButton
+            onClick={() => handleNewInvoiceClick()}
+            aria-label="Cadastrar nova nota"
+          >
             <S.PlusImage>
-              <img src={plus} />
+              <img src={plus} aria-hidden />
             </S.PlusImage>
             <p>
               {t("home.invoicesDisplay.button")}{" "}
@@ -64,7 +67,7 @@ export const InvoicesDisplay = () => {
                 {t("home.invoicesDisplay.buttonHidenText")}
               </S.HiddenText>
             </p>
-          </S.NewInvoiceButtom>
+          </S.NewInvoiceButton>
         </S.FlexRight>
       </S.DisplayInfo>
 

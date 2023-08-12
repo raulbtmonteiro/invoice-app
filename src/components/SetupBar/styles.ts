@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SetupBarContainer = styled.div`
+export const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   overflow: hidden;
@@ -57,7 +57,7 @@ export const FlexLeft = styled.div`
   }
 `;
 
-export const SetupBarIcon = styled.img`
+export const Logo = styled.img`
   position: absolute;
   z-index: 2;
 
@@ -77,7 +77,7 @@ export const FlexRight = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const LanguageButton = styled.button`
   background-color: transparent;
   border: none;
   width: 22px;
@@ -92,7 +92,7 @@ export const Button = styled.button`
   }
 `;
 
-export const SetupBarTheme = styled.div`
+export const ThemeButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,12 +102,15 @@ export const SetupBarTheme = styled.div`
   margin: 0 12px;
   cursor: pointer;
 
+  background-color: transparent;
+  border: none;
+
   @media screen and (min-width: 992px) {
     margin: 20px 0;
   }
 `;
 
-export const SetupBarUser = styled.div`
+export const UserContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +127,7 @@ export const SetupBarUser = styled.div`
   }
 `;
 
-export const SetupBarUserImage = styled.img`
+export const UserImage = styled.img`
   border-radius: 50%;
   width: 32px;
 

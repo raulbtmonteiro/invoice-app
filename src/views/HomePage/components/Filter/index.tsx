@@ -22,9 +22,13 @@ export const Filter = ({ activeFilter, setActiveFilter }: IFilter) => {
 
   return (
     <>
-      <S.Wrapper onClick={() => handleClick()}>
+      <S.Wrapper
+        onClick={() => handleClick()}
+        tabIndex={0}
+        aria-label="Abrir opções de filtro"
+      >
         {t("home.filter.title")}
-        <S.FilterArrow src={arrowDown} isOpen={isOpen} />
+        <S.FilterArrow src={arrowDown} isOpen={isOpen} aria-hidden />
       </S.Wrapper>
       {showOptions && (
         <S.OptionsWrapper>

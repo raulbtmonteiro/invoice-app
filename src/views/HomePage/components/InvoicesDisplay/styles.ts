@@ -83,7 +83,7 @@ export const FlexRight = styled.div`
   gap: 18px;
 `;
 
-export const NewInvoiceButtom = styled.button`
+export const NewInvoiceButton = styled.button`
   width: 90px;
   height: 44px;
   border-radius: 24px;

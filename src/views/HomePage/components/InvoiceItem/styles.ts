@@ -5,7 +5,7 @@ export const ContainerLink = styled(Link)`
   text-decoration: none;
 `;
 
-export const Container = styled.div`
+export const Container = styled.article`
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-areas:

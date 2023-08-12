@@ -23,10 +23,10 @@ describe("<SetupBar />", () => {
   it("should render correctly", () => {
     renderComponent();
 
-    const userAvatar = screen.getByAltText("Avatar do usuário");
-    const mainIcon = screen.getByAltText("Logo do aplicativo");
-    const themeIcon = screen.getByAltText("Ícone do tema atual");
-    const languageIcon = screen.getByAltText("Ícone do idioma atual");
+    const userAvatar = screen.getByTestId("user-image");
+    const mainIcon = screen.getByTestId("main-icon");
+    const themeIcon = screen.getByTestId("theme-icon");
+    const languageIcon = screen.getByTestId("lang-icon");
 
     expect(userAvatar).toBeInTheDocument();
     expect(mainIcon).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("<SetupBar />", () => {
   it("should toggle theme on click", () => {
     renderComponent();
 
-    const themeIcon = screen.getByAltText("Ícone do tema atual");
+    const themeIcon = screen.getByTestId("theme-icon");
     expect(themeIcon).toBeInTheDocument();
     fireEvent.click(themeIcon);
     //expect(toggleThemeMock).toHaveBeenCalledTimes(1);
@@ -46,7 +46,7 @@ describe("<SetupBar />", () => {
   it("should change language on click", () => {
     renderComponent();
 
-    const flagIcon = screen.getByAltText("Ícone do idioma atual");
+    const flagIcon = screen.getByTestId("lang-icon");
     expect(flagIcon).toBeInTheDocument();
     fireEvent.click(flagIcon);
     expect(i18nextMock.changeLanguage).toHaveBeenCalledTimes(1);

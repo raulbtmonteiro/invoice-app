@@ -23,7 +23,6 @@ export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
 
   return (
     <>
-      <div></div>
       <S.ContainerLink to={`/invoice/${invoice.id}`}>
         <S.Container>
           <S.Id>
@@ -39,8 +38,11 @@ export const InvoiceItem = ({ invoice }: IInvoiceItem) => {
             <div></div>
             {invoice.status}
           </S.Status>
-          <Link to={`/invoice/${invoice.id}`}>
-            <S.Seta src={arrowRight} />
+          <Link
+            to={`/invoice/${invoice.id}`}
+            aria-label={`Abrir informações da nota #${invoice.id}`}
+          >
+            <S.Seta src={arrowRight} aria-hidden />
           </Link>
         </S.Container>
       </S.ContainerLink>

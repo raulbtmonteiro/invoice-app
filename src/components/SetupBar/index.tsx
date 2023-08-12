@@ -24,32 +24,36 @@ export const SetupBar = ({ i18next }: ISetupBar) => {
     return lang === "en" ? usa : brazil;
   }, [lang]);
 
-  const handleClick = () => {
+  const changeLanguage = () => {
     i18next.changeLanguage(i18next.language === "en" ? "ptBR" : "en");
     setLang(i18next.language);
   };
 
   return (
-    <S.SetupBarContainer>
-      <Link to="/">
+    <S.Container>
+      <Link to="/" aria-label="Ir para a home">
         <S.FlexLeft>
-          <S.SetupBarIcon src={mainIcon} alt="Logo do aplicativo" />
+          <S.Logo src={mainIcon} aria-hidden data-testid="main-icon" />
         </S.FlexLeft>
       </Link>
 
       <S.FlexRight>
-        <S.Button onClick={() => handleClick()}>
-          <img src={flag()} alt="Ícone do idioma atual" />
-        </S.Button>
+        <S.LanguageButton onClick={changeLanguage} aria-label="Alterar idioma">
+          <img src={flag()} aria-hidden data-testid="lang-icon" />
+        </S.LanguageButton>
 
-        <S.SetupBarTheme onClick={toggleTheme}>
-          <img src={icon} alt="Ícone do tema atual" />
-        </S.SetupBarTheme>
+        <S.ThemeButton onClick={toggleTheme} aria-label="Alterar tema de cores">
+          <img src={icon} aria-hidden data-testid="theme-icon" />
+        </S.ThemeButton>
 
-        <S.SetupBarUser>
-          <S.SetupBarUserImage src={avatar} alt="Avatar do usuário" />
-        </S.SetupBarUser>
+        <S.UserContainer>
+          <S.UserImage
+            src={avatar}
+            alt="Avatar do usuário"
+            data-testid="user-image"
+          />
+        </S.UserContainer>
       </S.FlexRight>
-    </S.SetupBarContainer>
+    </S.Container>
   );
 };
