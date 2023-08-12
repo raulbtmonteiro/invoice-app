@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, InvoicePage } from "./views";
+import { HomePage, InvoicePage } from "./views";
 import { GlobalStyle } from "./themes";
 import invoicesData from "./data.json";
 import { AppTheme } from "./themes";
@@ -16,7 +16,7 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/invoice/:id" element={<InvoicePage />} />
         </Routes>
       </Router>
