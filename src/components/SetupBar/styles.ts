@@ -88,7 +88,8 @@ export const LanguageButton = styled.button`
   align-items: center;
 
   img {
-    width: 100%;
+    width: 22px;
+    height: 16.5px;
   }
 `;
 
@@ -104,6 +105,11 @@ export const ThemeButton = styled.button`
 
   background-color: transparent;
   border: none;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 
   @media screen and (min-width: 992px) {
     margin: 20px 0;

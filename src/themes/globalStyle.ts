@@ -5,7 +5,8 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Spartan";
     font-style: normal;
-    src: url(${SpartanRegular})
+    src: url(${SpartanRegular});
+    font-display: swap;
   }
 
   *{
