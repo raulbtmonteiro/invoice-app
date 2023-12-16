@@ -36,3 +36,5 @@ O projeto consiste em duas telas:
 
 Em sua lateral esquerda, para dispositivos desktop, e em seu topo, para dispositivos mobile, há uma barra onde é possível visualizar a foto do usuário logado na plataforma, alterar o tema de cores entre claro e escuro, além de alterar o idiota da aplicação entre inglês e português.
 
+Obs: Este projeto contempla apenas a parte da interface da aplicação, ou seja, o seu front-end. Toda a persistência dos dados é realizada no navegador, através do localStorage. Dessa forma, uma vez que a aplicação for restartada ou dados também serão.
+
